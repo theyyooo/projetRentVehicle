@@ -20,6 +20,6 @@ class Controller extends BaseController
     }
 
     public function main(){
-        
+        echo('hello');
     }
 }
