@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRentTable extends Migration
+class CreateReturnsFormTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreateRentTable extends Migration
      */
     public function up()
     {
-        Schema::create('Rent', function (Blueprint $table) {
-            $table->increments('RentId');
-            $table->integer('UserId')->unsigned()->index();
-            $table->integer('VehicleId')->unsigned()->index();
+        Schema::create('ReturnsForm', function (Blueprint $table) {
+            $table->increments('Id');
+            $table->integer('RentId')->unsigned()->index();
             $table->date('DateDepart');
             $table->date('DateArrive');
-            $table->foreign('UserId')->references('UserId')->on('Users');
-            $table->foreign('VehicleId')->references('VehicleId')->on('Vehicle');
+            $table->foreign('RentId')->references('RentId')->on('Rent');
             $table->timestamps();
         });
     }
@@ -32,6 +30,6 @@ class CreateRentTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Rent');
+        Schema::dropIfExists('ReturnsForm');
     }
 }
