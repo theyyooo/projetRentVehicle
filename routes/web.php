@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/, Controller@index');
+Route::get('/, Controller@main');
 
 Route::get('/connexion, Controller@connexion');
 Route::get('/inscription, Controller@inscription');
