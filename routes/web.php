@@ -11,10 +11,14 @@
 |
 */
 
-Route::get('/', 'Controller@main');
+Route::get('/', 'ToolsController@main');
 
-Route::get('/connexion', 'Controller@connexion');
-Route::get('/inscription', 'Controller@inscription');
+Route::get('/connexion', 'ToolsController@connexion');
+Route::post('/connexionEx', 'ToolsController@connexionEx');
+
+Route::get('/inscription', 'ToolsController@inscription');
+Route::post('/inscription', 'ToolsController@inscriptionEx');
+
 
 Route::post('/admin/newRendu', 'RenduController@newRendu');
 Route::get('/admin/allRendu', 'RenduController@getAllRendu');
@@ -30,6 +34,6 @@ Route::get('/admin/vehicle/{id}', 'VehicleController@getVehicle');
 Route::post('/admin/vehicle/{id}/edit', 'VehicleController@edit');
 Route::get('/admin/vehicle/{id}/delete', 'VehicleController@delete');
 
-Route::post('/newRent', 'RentController@new');
+Route::get('/newRent', 'RentController@new');
 Route::get('/allRent', 'RentController@getAllRent');
 Route::get('/currentRent', 'RentController@getCurrentRent');

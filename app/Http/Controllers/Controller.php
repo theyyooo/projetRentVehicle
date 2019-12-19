@@ -11,15 +11,4 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function connexion(){
-
-    }
-
-    public function inscription(){
-
-    }
-
-    public function main(){
-        echo('hello');
-    }
 }
