@@ -17,7 +17,7 @@ Route::get('/connexion', 'ToolsController@connexion');
 Route::post('/connexionEx', 'ToolsController@connexionEx');
 
 Route::get('/inscription', 'ToolsController@inscription');
-Route::post('/inscription', 'ToolsController@inscriptionEx');
+Route::post('/inscriptionEx', 'ToolsController@inscriptionEx');
 
 
 Route::post('/admin/newRendu', 'RenduController@newRendu');

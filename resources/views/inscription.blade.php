@@ -98,14 +98,11 @@ else {
       <div style="color: #5c89c1;">
           <i class="fas fa-user-circle fa-5x d-block" style="text-align:center;"></i>
       </div>
-      <form action="" method="POST">
-        <div class="form-group">
-          <label >Pseudo</label>
-          <input type="text" class="form-control" required name="pseudo" placeholder="Votre Pseudo">
-        </div>
+      <form action="inscriptionEx" method="POST">
+        @csrf
         <div class="form-group">
           <label >Nom</label>
-          <input type="text" class="form-control" required name="nom" placeholder="Votre nom" >
+          <input type="text" class="form-control" required name="name" placeholder="Votre nom" >
         </div>
         <div class="form-group">
           <label >Prénom</label>
@@ -116,16 +113,37 @@ else {
           <input type="email" class="form-control"  required name="mail" placeholder="Votre email" >
         </div>
         <div class="form-group">
+          <label >Votre date d'anniversaire</label>
+          <input type="text" class="form-control"  required name="anniversaire" placeholder="Votre anniversaire" >
+        </div>
+        <div class="form-group">
+          <label >Votre adresse</label>
+          <input type="text" class="form-control"  required name="adresse" placeholder="Votre adresse" >
+        </div>
+        <div class="form-group">
+          <label >Votre ville</label>
+          <input type="text" class="form-control"  required name="ville" placeholder="Votre ville" >
+        </div>
+        <div class="form-group">
+          <label >Votre pays</label>
+          <input type="text" class="form-control"  required name="payx" placeholder="Votre pays" >
+        </div>
+        <div class="form-group">
+          <label >Votre code postal</label>
+          <input type="text" class="form-control"  required name="cp" placeholder="Votre code postal" >
+        </div>
+        <div class="form-group">
+          <label >Votre numéro</label>
+          <input type="text" class="form-control"  required name="tel" placeholder="Votre numéro" >
+        </div>
+        <div class="form-group">
           <label >Mot de passe</label>
           <input type="password" class="form-control" name="password1" placeholder="Mot de passe">
         </div>
         <div class="form-group">
           <input type="password" class="form-control" name="password2" placeholder="Répétez votre mot de passe">
         </div>
-        <div class="form-group form-check">
-          <input type="checkbox" class="form-check-input" >
-          <label class="form-check-label" >Se souvenir de moi</label>
-        </div>
+
         <button type="submit" name="submit" class="btn btn-warning width-1" style="background-color: #5c89c1; border-color: #5c89c1;color:white">Creer un compte</button>
       </form>
       <?php

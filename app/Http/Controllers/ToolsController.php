@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class ToolsController extends Controller
 {
@@ -11,8 +12,11 @@ class ToolsController extends Controller
     }
 
     public function connexionEx(Request $request){
-        $request->session->put('mail', $request['mail;']);
-        return view('main');
+        
+        
+        $data = $request->get('mail');
+        $request->session()->put('mail', $data);
+        return view('main')->with('mail', $data);
     }
 
     public function inscription(){
@@ -20,7 +24,25 @@ class ToolsController extends Controller
     }
 
     public function inscriptionEx(Request $request){
-        var_dump($request);
+     
+        $user = [
+            'UserNom' => $request->input('nom'),
+            'UserPrenom' => $request->input('prenom'),
+            'UserAnniversaire' => $request->input('anniversaire'),
+            'UserAdresse' => $request->input('adresse'),
+            'UserVille' => $request->input('ville'),
+            'UserPays' => $request->input('pays'),
+            'UserCodePostal' => $request->input('cp'),
+            'UserMail' => $request->input('mail'),
+            'Usertel' => $request->input('tel')
+        ];
+
+        User::create($user);
+
+        $data = $request->get('prenom');
+        $request->session()->put('prenom', $data);
+        return view('main')->with('prenom', $data);
+
     }
 
     public function main(){

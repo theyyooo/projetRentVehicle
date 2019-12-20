@@ -17,15 +17,35 @@
       <li class="nav-item pl-4 pr-4">
         <a class="nav-link" href="currentRent"> <i class="fas fa-spinner"></i> Ma location en cours</a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <i class="fas fa-user-tie"></i> Mon compte
+
+      @isset($prenom)
+      
+      <li class="nav-item dropdown" style="">
+        <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           <i class="far fa-user-circle"></i>  {{$prenom}}
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="">Déconnectez-vous</a>
+          <a class="dropdown-item" href= "" >Mon profil</a>
+        </div>
+      </li>
+
+      
+
+      @else 
+
+      <li class="nav-item dropdown" style=";">
+        <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           <i class="far fa-user-circle"></i>  Mon compte
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="connexion">Connexion</a>
           <a class="dropdown-item" href="inscription">Inscription</a>
         </div>
-      </li>
+  </li>
+
+      @endisset
+   
     </ul>
   </div>
 </nav>

@@ -14,16 +14,12 @@
         <form action="connexionEx" method="POST">
         @csrf
           <div class="form-group">
-            <label >pseudo</label>
-            <input type="texte" name="pseudo" class="form-control"  placeholder="Votre Pseudo">
+            <label >Mail</label>
+            <input type="texte" name="mail" class="form-control"  placeholder="Votre mail">
           </div>
           <div class="form-group">
             <label >Mot de passe</label>
             <input type="password" name="password" class="form-control" placeholder="Mot de passe">
-          </div>
-          <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" >
-            <label class="form-check-label" >Se souvenir de moi</label>
           </div>
           <button type="submit" name="submit" class="btn btn-warning width-1" style="background-color: #5c89c1; border-color: #5c89c1; color:white">Se connecter</button>
         </form>
