@@ -23,12 +23,13 @@
           </div>
           <button type="submit" name="submit" class="btn btn-warning width-1" style="background-color: #5c89c1; border-color: #5c89c1; color:white">Se connecter</button>
         </form>
-        <?php
-            if (isset($erreur))
-            {
-              echo '<div style="color: red; text-align:center; margin-top:20px;">'.$erreur.'</div>';
-            }
-         ?>
+        
+        @isset($erreur)
+        
+         <div style="color: red; text-align:center; margin-top:20px;">{{$erreur}}</div>;
+        
+         @endisset
+         
         <div class="alert alert-success mt-4 text-center" role="alert">
             Pas encore inscrit ?  <a href="inscription" class="alert-link">Rejoignez-nous</a> maintenant.
         </div>

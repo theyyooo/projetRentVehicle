@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Hash;
 
 class ToolsController extends Controller
 {
@@ -13,10 +14,15 @@ class ToolsController extends Controller
 
     public function connexionEx(Request $request){
         
-        
-        $data = $request->get('mail');
-        $request->session()->put('mail', $data);
-        return view('main')->with('mail', $data);
+        $mail = htmlspecialchars($request->get('mail'));
+        $mdpconnect = ($request->get('password'));
+        if (!empty($mail) AND !empty($mdpconnect)){
+           return view('main');
+        }
+        else {
+            $erreur = 'Veuillez remplir tous les champs';
+            return view('connexion')->with('erreur', $erreur);
+        }
     }
 
     public function inscription(){
@@ -26,22 +32,32 @@ class ToolsController extends Controller
     public function inscriptionEx(Request $request){
      
         $user = [
-            'UserNom' => $request->input('nom'),
-            'UserPrenom' => $request->input('prenom'),
-            'UserAnniversaire' => $request->input('anniversaire'),
-            'UserAdresse' => $request->input('adresse'),
-            'UserVille' => $request->input('ville'),
-            'UserPays' => $request->input('pays'),
-            'UserCodePostal' => $request->input('cp'),
-            'UserMail' => $request->input('mail'),
-            'Usertel' => $request->input('tel')
+            //'UserId' => '00001',
+            'nom' => $request->input('nom'),
+            'prenom' => $request->input('prenom'),
+            'anniversaire' => $request->input('anniversaire'),
+            'adresse' => $request->input('adresse'),
+            'ville' => $request->input('ville'),
+            'pays' => $request->input('pays'),
+            'codePostal' => $request->input('cp'),
+            'mail' => $request->input('mail'),
+            'tel' => $request->input('tel'),
+            'password' => Hash::make($request->input('password'))
         ];
 
-        User::create($user);
+        if (!empty('nom') AND !empty('nom') AND !empty('nom') AND !empty('nom') AND !empty('nom') AND !empty('nom') AND !empty('nom') AND !empty('nom') ) {
 
-        $data = $request->get('prenom');
-        $request->session()->put('prenom', $data);
-        return view('main')->with('prenom', $data);
+            User::create($user);
+            $data = $request->get('prenom');
+            $request->session()->put('prenom', $data);
+            return view('main')->with('prenom', $data);
+        }
+        else {
+            $erreur = 'Veuillez remplir tous les champs';
+            return view('inscription')->with('erreur', $erreur);
+        }
+
+
 
     }
 

@@ -13,12 +13,12 @@ class CreateReturnsFormTable extends Migration
      */
     public function up()
     {
-        Schema::create('ReturnsForm', function (Blueprint $table) {
-            $table->increments('Id');
-            $table->integer('RentId')->unsigned()->index();
-            $table->date('DateDepart');
-            $table->date('DateArrive');
-            $table->foreign('RentId')->references('RentId')->on('Rent');
+        Schema::create('returnsForms', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('rent_id')->unsigned()->index();
+            $table->date('dateDepart');
+            $table->date('dateArrive');
+            $table->foreign('rent_id')->references('id')->on('rents');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateReturnsFormTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ReturnsForm');
+        Schema::dropIfExists('returnsForms');
     }
 }

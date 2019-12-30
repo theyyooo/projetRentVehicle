@@ -34,6 +34,12 @@ Route::get('/admin/vehicle/{id}', 'VehicleController@getVehicle');
 Route::post('/admin/vehicle/{id}/edit', 'VehicleController@edit');
 Route::get('/admin/vehicle/{id}/delete', 'VehicleController@delete');
 
-Route::get('/newRent', 'RentController@new');
+Route::get('/newRent', 'RentController@getPage');
+Route::get('/newRent/SUV', 'RentController@getSUV');
+Route::get('/newRent/BREAK', 'RentController@getBREAK');
+Route::get('/newRent/MOTO', 'RentController@getMOTO');
+Route::get('/newRent/BERLINE', 'RentController@getBERLINE');
+
+
 Route::get('/allRent', 'RentController@getAllRent');
 Route::get('/currentRent', 'RentController@getCurrentRent');

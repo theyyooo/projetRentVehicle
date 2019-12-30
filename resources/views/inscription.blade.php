@@ -1,89 +1,5 @@
 @include('template')
 
-<?php
-
-if (empty($_SESSION['pseudo']))
-{
-  if (isset($_POST['submit']))
-  {
-    if (!empty($_POST['nom']) AND !empty($_POST['prenom']) AND !empty($_POST['mail']) AND !empty($_POST['password1']) AND !empty($_POST['password2'])AND !empty($_POST['pseudo']))
-    {
-      $pseudo = htmlspecialchars($_POST['pseudo']);
-      $nom = htmlspecialchars($_POST['nom']);
-      $prenom = htmlspecialchars($_POST['prenom']);
-      $mail = htmlspecialchars($_POST['mail']);
-      $mdp = sha1($_POST['password1']);
-      $mdp2 = sha1($_POST['password2']);
-      $pseudolenght = strlen($pseudo);
-      if ($pseudolenght <= 255)
-      {
-        if (filter_var($mail, FILTER_VALIDATE_EMAIL))
-        {
-          $ReqPseudo = $bdd-> prepare('SELECT * FROM client WHERE CLIPseudo = ?');
-          $ReqPseudo -> execute(array($pseudo));
-          $PseudoExiste = $ReqPseudo->RowCount();
-          if ($PseudoExiste == 0)
-          {
-            $reqmail = $bdd-> prepare('SELECT * FROM client WHERE CLIMail = ?');
-            $reqmail -> execute(array($mail));
-            $mailexiste = $reqmail->RowCount();
-            if ($mailexiste == 0)
-            {
-              if ($mdp == $mdp2)
-              {
-                if (strlen($_POST['password1']) >= 8)
-                {
-                  if (preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W)#', $_POST['password1']))
-                  {
-                    $insert_pharma = $bdd->prepare("INSERT INTO client(CLIPseudo, CLIMail, CLINom, CLIPrenom, CLIPassword) VALUES(?, ?, ?, ?, ?)");
-                    $insert_pharma->execute(array($pseudo, $mail, $nom, $prenom, $mdp));
-                    header('location: connexion.php');
-                  }
-                  else
-                  {
-                    $erreur = 'Votre mot de passe doit integrer majuscule(s), chiffre(s), caractère(s) specia(l)ux';
-                  }
-                }
-                else
-                {
-                  $erreur = "votre mot de passe doit contenir au minimum 8 caractères";
-                }
-              }
-              else
-                {
-                  $erreur = "Vos mots de passes ne correspondent pas";
-                }
-            }
-            else {
-             $erreur = "le mail existe déja !";
-            }
-          }
-          else {
-            $erreur = "le pseudo existe déja";
-          }
-        }
-        else
-        {
-          $erreur = "email incorrect";
-        }
-      }
-      else
-      {
-        $erreur = "Votre pseudo doit comporter moins de 255 caractères";
-      }
-    }
-    else
-    {
-      $erreur = "Tous les champs doivent être complétées";
-    }
-  }
-}
-else {
-  header('location: deconnection.php');
-}
-?>
-
-
 <body>
 
   <div class="card d-block m-auto my-auto col-sm-11  mt-md-5 mb-sm-5 col-md-6 justify-content-center border-0 shadow-small">
@@ -102,7 +18,7 @@ else {
         @csrf
         <div class="form-group">
           <label >Nom</label>
-          <input type="text" class="form-control" required name="name" placeholder="Votre nom" >
+          <input type="text" class="form-control" required name="nom" placeholder="Votre nom" >
         </div>
         <div class="form-group">
           <label >Prénom</label>
@@ -126,7 +42,7 @@ else {
         </div>
         <div class="form-group">
           <label >Votre pays</label>
-          <input type="text" class="form-control"  required name="payx" placeholder="Votre pays" >
+          <input type="text" class="form-control"  required name="pays" placeholder="Votre pays" >
         </div>
         <div class="form-group">
           <label >Votre code postal</label>
@@ -141,7 +57,7 @@ else {
           <input type="password" class="form-control" name="password1" placeholder="Mot de passe">
         </div>
         <div class="form-group">
-          <input type="password" class="form-control" name="password2" placeholder="Répétez votre mot de passe">
+          <input type="password" class="form-control" name="password" placeholder="Répétez votre mot de passe">
         </div>
 
         <button type="submit" name="submit" class="btn btn-warning width-1" style="background-color: #5c89c1; border-color: #5c89c1;color:white">Creer un compte</button>

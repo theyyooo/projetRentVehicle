@@ -13,14 +13,14 @@ class CreateRentTable extends Migration
      */
     public function up()
     {
-        Schema::create('Rent', function (Blueprint $table) {
-            $table->increments('RentId');
-            $table->integer('UserId')->unsigned()->index();
-            $table->integer('VehicleId')->unsigned()->index();
-            $table->date('DateDepart');
-            $table->date('DateArrive');
-            $table->foreign('UserId')->references('UserId')->on('Users');
-            $table->foreign('VehicleId')->references('VehicleId')->on('Vehicle');
+        Schema::create('rents', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('vehicle_id')->unsigned()->index();
+            $table->integer('user_id')->unsigned()->index();
+            $table->date('dateDepart');
+            $table->date('dateArrive');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('vehicle_id')->references('id')->on('vehicles');
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ class CreateRentTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Rent');
+        Schema::dropIfExists('rents');
     }
 }

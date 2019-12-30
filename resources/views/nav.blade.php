@@ -1,5 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light  "style="font-size: 30px;">
-  <a class="navbar-brand" href="/"><img src="../../assets/logo_v.png" alt="" style="height: 40px;"></img></a>
+<div class="shadow-lg p-3 mb-5 bg-white rounded">
+<nav class="navbar navbar-expand-lg navbar-light  "style="font-size: 30px;">
+  <a class="navbar-brand" href="/"><img src="../../assets/logo_v.png" alt="" style="height: 60px;"></img></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -49,3 +50,4 @@
     </ul>
   </div>
 </nav>
+</div>
