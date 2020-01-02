@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class ToolsController extends Controller
 {
@@ -13,15 +15,27 @@ class ToolsController extends Controller
     }
 
     public function connexionEx(Request $request){
-        
-        $mail = htmlspecialchars($request->get('mail'));
-        $mdpconnect = ($request->get('password'));
-        if (!empty($mail) AND !empty($mdpconnect)){
-           return view('main');
+        if (Auth::check() == false) {
+            $mail = htmlspecialchars($request->get('mail'));
+            $mdpconnect = ($request->get('password'));
+            if (!empty($mail) AND !empty($mdpconnect)){
+                Auth::attempt(['mail'=> $mail, 'password'=>$mdpconnect]);
+            if (Auth::check() == true) {
+                return view('main');
+             }
+             else {
+                 $erreur = 'Le mot de passe ou le mail est incorrecte';
+                 return view('connexion')->with('erreur', $erreur);
+             }
+              return view('main');
+            }
+            else {
+                $erreur = 'Veuillez remplir tous les champs';
+                return view('connexion')->with('erreur', $erreur);
+            }
         }
         else {
-            $erreur = 'Veuillez remplir tous les champs';
-            return view('connexion')->with('erreur', $erreur);
+            echo('deja connecté');
         }
     }
 
@@ -56,9 +70,11 @@ class ToolsController extends Controller
             $erreur = 'Veuillez remplir tous les champs';
             return view('inscription')->with('erreur', $erreur);
         }
+    }
 
-
-
+    public function deconnection(){
+        Auth::logout();
+        return view('main');    
     }
 
     public function main(){

@@ -22,8 +22,8 @@ class RentController extends Controller
         return view('newRentByType')->with('type', $type);
     }
 
-    public function getMOTO(){
-        $type = 'Moto';
+    public function getUTILITAIRE(){
+        $type = 'Utilitaire';
         return view('newRentByType')->with('type', $type);
     }
 

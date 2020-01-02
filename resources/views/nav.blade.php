@@ -19,14 +19,14 @@
         <a class="nav-link" href="currentRent"> <i class="fas fa-spinner"></i> Ma location en cours</a>
       </li>
 
-      @isset($prenom)
+      @if(Auth::check() == true)
       
       <li class="nav-item dropdown" style="">
         <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-           <i class="far fa-user-circle"></i>  {{$prenom}}
+          <i class="far fa-user-circle"></i> {{Auth::user()->prenom}}
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="">Déconnectez-vous</a>
+          <a class="dropdown-item" href="deconnection">Déconnectez-vous</a>
           <a class="dropdown-item" href= "" >Mon profil</a>
         </div>
       </li>
@@ -45,7 +45,7 @@
         </div>
   </li>
 
-      @endisset
+      @endif
    
     </ul>
   </div>

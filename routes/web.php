@@ -19,6 +19,8 @@ Route::post('/connexionEx', 'ToolsController@connexionEx');
 Route::get('/inscription', 'ToolsController@inscription');
 Route::post('/inscriptionEx', 'ToolsController@inscriptionEx');
 
+Route::get('/deconnection', 'ToolsController@deconnection');
+
 
 Route::post('/admin/newRendu', 'RenduController@newRendu');
 Route::get('/admin/allRendu', 'RenduController@getAllRendu');
@@ -37,7 +39,7 @@ Route::get('/admin/vehicle/{id}/delete', 'VehicleController@delete');
 Route::get('/newRent', 'RentController@getPage');
 Route::get('/newRent/SUV', 'RentController@getSUV');
 Route::get('/newRent/BREAK', 'RentController@getBREAK');
-Route::get('/newRent/MOTO', 'RentController@getMOTO');
+Route::get('/newRent/UTILITAIRE', 'RentController@getUTILITAIRE');
 Route::get('/newRent/BERLINE', 'RentController@getBERLINE');
 
 

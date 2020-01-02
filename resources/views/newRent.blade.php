@@ -51,11 +51,11 @@
         <div class="col-lg-6">
 
                 <div class="card">
-                        <img src="../../assets/moto.jpg" class="card-img-top" alt="...">
+                        <img src="../../assets/utilitaire.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
-                          <h5 class="card-title" style="color: black;">MOTO</h5>
+                          <h5 class="card-title" style="color: black;">UTILITAIRE</h5>
                           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="newRent/MOTO" class="btn btn-primary">Go somewhere</a>
+                          <a href="newRent/UTILITAIRE" class="btn btn-primary">Go somewhere</a>
                         </div>
                 </div>
 
