@@ -4,12 +4,6 @@
 
   <div class="card d-block m-auto my-auto col-sm-11  mt-md-5 mb-sm-5 col-md-6 justify-content-center border-0 shadow-small">
     <div class="card-body">
-      <?php
-          if (isset($validation))
-          {
-            echo '<div style="color: green; text-align:center">'.$validation.'</div>';
-          }
-       ?>
       <h5 class="card-title text-center h1">Inscription</h5>
       <div style="color: #5c89c1;">
           <i class="fas fa-user-circle fa-5x d-block" style="text-align:center;"></i>
@@ -30,7 +24,7 @@
         </div>
         <div class="form-group">
           <label >Votre date d'anniversaire</label>
-          <input type="text" class="form-control"  required name="anniversaire" placeholder="Votre anniversaire" >
+          <input type="text" class="form-control"  required name="anniversaire" placeholder="Votre anniversaire en format AAAA-MM-JJ" >
         </div>
         <div class="form-group">
           <label >Votre adresse</label>
@@ -57,7 +51,7 @@
           <input type="password" class="form-control" name="password1" placeholder="Mot de passe">
         </div>
         <div class="form-group">
-          <input type="password" class="form-control" name="password" placeholder="Répétez votre mot de passe">
+          <input type="password" class="form-control" name="password2" placeholder="Répétez votre mot de passe">
         </div>
 
         <button type="submit" name="submit" class="btn btn-warning width-1" style="background-color: #5c89c1; border-color: #5c89c1;color:white">Creer un compte</button>

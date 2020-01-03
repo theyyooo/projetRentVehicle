@@ -11,7 +11,13 @@ use Illuminate\Support\Facades\Session;
 class ToolsController extends Controller
 {
     public function connexion(){
-        return view('connexion');
+        if (Auth::check()==true) {
+            return redirect()->action('ToolsController@main');
+        }
+        else {
+            return view('connexion');
+        }
+        
     }
 
     public function connexionEx(Request $request){
@@ -21,7 +27,7 @@ class ToolsController extends Controller
             if (!empty($mail) AND !empty($mdpconnect)){
                 Auth::attempt(['mail'=> $mail, 'password'=>$mdpconnect]);
             if (Auth::check() == true) {
-                return view('main');
+                return redirect()->action('ToolsController@main');
              }
              else {
                  $erreur = 'Le mot de passe ou le mail est incorrecte';
@@ -35,36 +41,55 @@ class ToolsController extends Controller
             }
         }
         else {
-            echo('deja connecté');
+            return redirect()->action('ToolsController@main');
         }
     }
 
     public function inscription(){
-        return view('inscription');
+        if (Auth::check()==true) {
+            return redirect()->action('ToolsController@main');
+        }
+        else {
+            return view('inscription');
+        }
     }
 
     public function inscriptionEx(Request $request){
      
         $user = [
             //'UserId' => '00001',
-            'nom' => $request->input('nom'),
-            'prenom' => $request->input('prenom'),
-            'anniversaire' => $request->input('anniversaire'),
-            'adresse' => $request->input('adresse'),
-            'ville' => $request->input('ville'),
-            'pays' => $request->input('pays'),
-            'codePostal' => $request->input('cp'),
-            'mail' => $request->input('mail'),
-            'tel' => $request->input('tel'),
-            'password' => Hash::make($request->input('password'))
+            'nom' => htmlspecialchars($request->input('nom')),
+            'prenom' => htmlspecialchars($request->input('prenom')),
+            'anniversaire' => htmlspecialchars($request->input('anniversaire')),
+            'adresse' => htmlspecialchars($request->input('adresse')),
+            'ville' => htmlspecialchars($request->input('ville')),
+            'pays' => htmlspecialchars($request->input('pays')),
+            'codePostal' => htmlspecialchars($request->input('cp')),
+            'mail' => htmlspecialchars($request->input('mail')),
+            'tel' => htmlspecialchars($request->input('tel')),
+            'password' => Hash::make($request->input('password1'))    
         ];
-
-        if (!empty('nom') AND !empty('nom') AND !empty('nom') AND !empty('nom') AND !empty('nom') AND !empty('nom') AND !empty('nom') AND !empty('nom') ) {
-
-            User::create($user);
-            $data = $request->get('prenom');
-            $request->session()->put('prenom', $data);
-            return view('main')->with('prenom', $data);
+        $password1 = htmlspecialchars($request->input('password1'));
+        $password2 = htmlspecialchars($request->input('password2'));      
+       
+        if (!empty('nom') AND !empty('prenom') AND !empty('anniversaire') AND !empty('adresse') AND !empty('ville') AND !empty('pays') AND !empty('codePostal') AND !empty('mail')AND !empty('tel') ) {
+            if (strlen($password1) > 5) {
+                if ($password1 == $password2) {
+                    User::create($user);
+                    Auth::attempt(['mail'=> $user['mail'], 'password'=>$password1]);
+                    //a reevoir 
+                    dd(Auth::check());
+                    return redirect()->action('ToolsController@main');
+                }
+                else {
+                    $erreur = 'Les mots de passe ne correspondent pas';
+                    return view('inscription')->with('erreur', $erreur);
+                }
+            }
+            else {
+                $erreur = 'Choisissez un meilleur mot de passe';
+                return view('inscription')->with('erreur', $erreur);
+            }
         }
         else {
             $erreur = 'Veuillez remplir tous les champs';
@@ -74,7 +99,7 @@ class ToolsController extends Controller
 
     public function deconnection(){
         Auth::logout();
-        return view('main');    
+        return redirect()->action('ToolsController@connexion');   
     }
 
     public function main(){
