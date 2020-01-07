@@ -23,7 +23,7 @@ class ToolsController extends Controller
     public function connexionEx(Request $request){
         if (Auth::check() == false) {
             $mail = htmlspecialchars($request->get('mail'));
-            $mdpconnect = ($request->get('password'));
+            $mdpconnect = htmlspecialchars($request->get('password'));
             if (!empty($mail) AND !empty($mdpconnect)){
                 Auth::attempt(['mail'=> $mail, 'password'=>$mdpconnect]);
             if (Auth::check() == true) {
@@ -77,8 +77,7 @@ class ToolsController extends Controller
                 if ($password1 == $password2) {
                     User::create($user);
                     Auth::attempt(['mail'=> $user['mail'], 'password'=>$password1]);
-                    //a reevoir 
-                    dd(Auth::check());
+
                     return redirect()->action('ToolsController@main');
                 }
                 else {

@@ -11,3 +11,31 @@
 //CHOISIR LA DATE DE LOCATION 
 
 //COMMANDE EFFECTUE
+
+@foreach ($vehicles as $vehicle)
+<div class="shadow-lg p-3 mb-5 bg-white rounded" style="margin-top: 80px; width: 50%; margin-left: 25%;">
+    <div class="container" style=" font-size: 20px;"> 
+      <div class="row" style="text-align:center">
+          <div class="col-lg-12" >
+  
+                  <div class="card">
+                  <img src="../../assets/{{$vehicle->photo}}.jpg" class="card-img-top" alt="...">
+                          <div class="card-body">
+                          <h5 class="card-title" style="color: black;">{{$vehicle->modele}}</h5>
+                          <p class="card-text">{{$vehicle->marque}}</p>
+                              
+                          @if ($vehicle->disponibilite == true)
+                          <a href="/newRentByCar/{{$vehicle->id}}" class="btn btn-success">disponible</a>
+                          @else
+                          <a href="" class="btn btn-danger">indisponible</a>  
+                          @endif
+                            
+                          </div>
+                  </div>
+  
+          </div>
+</div>
+@endforeach
+
+
+    

@@ -14,7 +14,7 @@
                         <div class="card-body">
                           <h5 class="card-title" style="color: black;">BERLINE</h5>
                           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="newRent/BERLINE" class="btn btn-primary">Go somewhere</a>
+                          <a href="newRent/Berline" class="btn btn-primary">Choisir</a>
                         </div>
                 </div>
 
@@ -27,7 +27,7 @@
                         <div class="card-body">
                           <h5 class="card-title"style="color: black;">BREAK</h5>
                           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="newRent/BREAK" class="btn btn-primary">Go somewhere</a>
+                          <a href="newRent/Break" class="btn btn-primary">Choisir</a>
                         </div>
                 </div>
 
@@ -42,7 +42,7 @@
                         <div class="card-body">
                           <h5 class="card-title" style="color: black;" >S.U.V</h5>
                           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="newRent/SUV" class="btn btn-primary">Go somewhere</a>
+                          <a href="newRent/S.U.V" class="btn btn-primary">Choisir</a>
                         </div>
                 </div>
 
@@ -55,7 +55,7 @@
                         <div class="card-body">
                           <h5 class="card-title" style="color: black;">UTILITAIRE</h5>
                           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="newRent/UTILITAIRE" class="btn btn-primary">Go somewhere</a>
+                          <a href="newRent/Utilitaire" class="btn btn-primary">Choisir</a>
                         </div>
                 </div>
 

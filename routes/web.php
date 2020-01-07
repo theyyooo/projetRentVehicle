@@ -37,10 +37,9 @@ Route::post('/admin/vehicle/{id}/edit', 'VehicleController@edit');
 Route::get('/admin/vehicle/{id}/delete', 'VehicleController@delete');
 
 Route::get('/newRent', 'RentController@getPage');
-Route::get('/newRent/SUV', 'RentController@getSUV');
-Route::get('/newRent/BREAK', 'RentController@getBREAK');
-Route::get('/newRent/UTILITAIRE', 'RentController@getUTILITAIRE');
-Route::get('/newRent/BERLINE', 'RentController@getBERLINE');
+Route::get('/newRent/{type}', 'RentController@getType');
+Route::get('/newRentByCar/{id}', 'RentController@getCar');
+
 
 
 Route::get('/allRent', 'RentController@getAllRent');

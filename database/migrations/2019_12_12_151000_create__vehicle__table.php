@@ -19,6 +19,8 @@ class CreateVehicleTable extends Migration
             $table->string('marque');
             $table->string('modele');
             $table->string('type');
+            $table->string('photo');
+            $table->boolean('disponibilite');
             $table->timestamps();
         });
     }

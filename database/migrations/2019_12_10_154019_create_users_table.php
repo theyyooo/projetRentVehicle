@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
             $table->string('codePostal');
             $table->string('mail');         
             $table->string('tel'); 
+            $table->boolean('vehicle')->default(false);
             $table->timestamps();
         });
     }

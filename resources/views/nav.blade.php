@@ -10,13 +10,13 @@
         <a class="nav-link" href="/">Accueil <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item pl-4 pr-4">
-        <a class="nav-link" href="newRent"><i class="fas fa-car"></i> Louer</a>
+        <a class="nav-link" href="/newRent"><i class="fas fa-car"></i> Louer</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="allRent"><i class="fas fa-tasks"></i> Toutes mes locations</a>
+        <a class="nav-link" href="/allRent"><i class="fas fa-tasks"></i> Toutes mes locations</a>
       </li>
       <li class="nav-item pl-4 pr-4">
-        <a class="nav-link" href="currentRent"> <i class="fas fa-spinner"></i> Ma location en cours</a>
+        <a class="nav-link" href="/currentRent"> <i class="fas fa-spinner"></i> Ma location en cours</a>
       </li>
 
       @if(Auth::check() == true)
@@ -26,8 +26,7 @@
           <i class="far fa-user-circle"></i> {{Auth::user()->prenom}}
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="deconnection">Déconnectez-vous</a>
-          <a class="dropdown-item" href= "" >Mon profil</a>
+          <a class="dropdown-item" href="/deconnection">Déconnectez-vous</a>
         </div>
       </li>
 
@@ -40,8 +39,8 @@
            <i class="far fa-user-circle"></i>  Mon compte
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="connexion">Connexion</a>
-          <a class="dropdown-item" href="inscription">Inscription</a>
+          <a class="dropdown-item" href="/connexion">Connexion</a>
+          <a class="dropdown-item" href="/inscription">Inscription</a>
         </div>
   </li>
 
