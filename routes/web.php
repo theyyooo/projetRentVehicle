@@ -38,7 +38,7 @@ Route::get('/admin/vehicle/{id}/delete', 'VehicleController@delete');
 
 Route::get('/newRent', 'RentController@getPage');
 Route::get('/newRent/{type}', 'RentController@getType');
-Route::get('/newRentByCar/{id}', 'RentController@getCar');
+Route::get('/newRentBy/Car/{id}', 'RentController@getCar');
 
 
 
