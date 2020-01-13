@@ -36,6 +36,7 @@ Route::get('/admin/vehicle/{id}', 'VehicleController@getVehicle');
 Route::post('/admin/vehicle/{id}/edit', 'VehicleController@edit');
 Route::get('/admin/vehicle/{id}/delete', 'VehicleController@delete');
 
+Route::Post('/Rent', 'RentController@saveRent');
 Route::get('/newRent', 'RentController@getPage');
 Route::get('/newRent/{type}', 'RentController@getType');
 Route::get('/newRentBy/Car/{id}', 'RentController@getCar');

@@ -2,7 +2,7 @@
 
 @include('template')
 
-<p style="color: #636b6f;font-family: 'Nunito', sans-serif;font-weight: 200; font-size: 30px; text-align:center;"> Choisissez le type de vehicule que vous souhaitez:  </p>
+<p class="mt-5" style="color: #636b6f;font-family: 'Nunito', sans-serif;font-weight: 200; font-size: 30px; text-align:center;"> Choisissez le type de vehicule que vous souhaitez:  </p>
 
 <div class="shadow-lg p-3 mb-5 bg-white rounded" style="margin-top: 80px; width: 50%; margin-left: 25%;">
   <div class="container" style=" font-size: 20px;"> 

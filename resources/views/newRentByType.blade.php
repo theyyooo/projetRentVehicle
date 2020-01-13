@@ -1,19 +1,28 @@
 @include('template')
 
-<p style="color: #636b6f;font-family: 'Nunito', sans-serif;font-weight: 200; font-size: 30px; text-align:center;"> Choisissez votre vehicule  selon notre gamme de {{$type}}:  </p>
+<p class="mt-5" style="color: #636b6f;font-family: 'Nunito', sans-serif;font-weight: 200; font-size: 30px; text-align:center;"> Choisissez votre vehicule  selon notre gamme de {{$type}}:  </p>
 
 
-@if ($loc == 0)
-    <div class="alert alert-success" style="width: 30%; margin-left: 35%" role="alert">
-        1 location possible
-    </div>
+
+@if(isset($loc))
+    @if ($loc == 0)
+        <div class="alert alert-success" style="width: 30%; margin-left: 35%; text-align:center" role="alert">
+            1 location possible
+        </div>
+    @else
+
+        <div class="alert alert-danger text-center" style="width: 30%; margin-left: 35%; text-align:center" role="alert">
+            Vous avez déja une location en cours
+        </div>
+
+    @endif 
 @else
-
-    <div class="alert alert-danger text-center" style="width: 30%; margin-left: 35%" role="alert">
-        Vous avez déja une location en cours
+    <div class="alert alert-warning" style="width: 30%; margin-left: 35%; text-align:center" role="alert">
+        Vous devez vous<a href="/connexion" class="alert-link"> connecter </a>.
     </div>
-
 @endif
+
+    
 
 @foreach ($vehicles as $vehicle)
 <div class="shadow-lg p-3 mb-5 bg-white rounded" style="margin-top: 80px; width: 50%; margin-left: 25%;">

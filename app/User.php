@@ -14,4 +14,8 @@ class User extends Model implements Authenticatable
     protected $fillable = ['nom', 'password', 'prenom', 'anniversaire', 'adresse', 'ville', 'pays', 'codePostal', 'mail', 'tel', 'vehicle'];
     public $timestamp = false;
 
+
+    public function locations(){
+        return $this->hasMany(Rent::class);
+    }
 }

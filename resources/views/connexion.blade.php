@@ -2,8 +2,8 @@
 
 
 
-<body>
 
+<div class="shadow p-3 mb-5 bg-white rounded  mt-5"  style="width: 50%; margin-left: 25%; background: url('http://www.w3.org/2000/svg'">
   <div class="row mb-5">
     <div class="card d-block m-auto my-auto col-sm-11  mt-md-5 mb-sm-5 col-md-6 justify-content-center border-0 shadow-small">
       <div class="card-body">
@@ -37,6 +37,7 @@
       </div>
     </div>
   </div>
+</div>
 
 
 

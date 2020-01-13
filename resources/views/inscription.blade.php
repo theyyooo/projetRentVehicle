@@ -2,7 +2,7 @@
 
 <body>
 
-  <div class="card d-block m-auto my-auto col-sm-11  mt-md-5 mb-sm-5 col-md-6 justify-content-center border-0 shadow-small">
+  <div class="card d-block m-auto my-auto col-sm-11  mt-md-5 mb-sm-5 col-md-6 justify-content-center border-0 shadow-small mt-5">
     <div class="card-body">
       <h5 class="card-title text-center h1">Inscription</h5>
       <div style="color: #5c89c1;">

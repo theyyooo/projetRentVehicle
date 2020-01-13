@@ -106,3 +106,5 @@ class ToolsController extends Controller
        return view('main'); 
     }
 }
+
+
