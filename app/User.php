@@ -11,7 +11,7 @@ use Illuminate\Auth\Authenticatable as BasicAuthentiticatable;
 class User extends Model implements Authenticatable
 {
     use BasicAuthentiticatable;
-    protected $fillable = ['nom', 'password', 'prenom', 'anniversaire', 'adresse', 'ville', 'pays', 'codePostal', 'mail', 'tel', 'vehicle'];
+    protected $fillable = ['nom', 'password', 'prenom', 'mail', 'vehicle'];
     public $timestamp = false;
 
 

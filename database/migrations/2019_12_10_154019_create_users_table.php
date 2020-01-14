@@ -18,13 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('nom');
             $table->string('prenom');
-            $table->date('anniversaire');
-            $table->string('adresse');
-            $table->string('ville');
-            $table->string('pays');
-            $table->string('codePostal');
             $table->string('mail');         
-            $table->string('tel'); 
             $table->boolean('vehicle')->default(false);
             $table->timestamps();
         });

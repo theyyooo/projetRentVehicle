@@ -20,6 +20,7 @@
      <link rel="stylesheet" href="../public/style.css" />
      <!-- Style de Police -->
      <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet">
      <!-- logo utilisés -->
      
      <!-- titre -->

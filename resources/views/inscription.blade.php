@@ -1,9 +1,10 @@
+
 @include('template')
 
-<body>
-
-  <div class="card d-block m-auto my-auto col-sm-11  mt-md-5 mb-sm-5 col-md-6 justify-content-center border-0 shadow-small mt-5">
-    <div class="card-body">
+<div class="pt-5 mb-2" style="background: url('../../assets/wave.svg'); background-size:cover; height:80vh">
+  <p class="mt-5 ml-5" style="font-family: 'Dancing Script', cursive; color: white; font-size: 4em; float:left;"> Louez autant que vous le souhaitez</p>
+  <div class="card mt-5" style="width: 25%; margin-left: 54%;">
+    <div class="p-4">
       <h5 class="card-title text-center h1">Inscription</h5>
       <div style="color: #5c89c1;">
           <i class="fas fa-user-circle fa-5x d-block" style="text-align:center;"></i>
@@ -23,30 +24,6 @@
           <input type="email" class="form-control"  required name="mail" placeholder="Votre email" >
         </div>
         <div class="form-group">
-          <label >Votre date d'anniversaire</label>
-          <input type="text" class="form-control"  required name="anniversaire" placeholder="Votre anniversaire en format AAAA-MM-JJ" >
-        </div>
-        <div class="form-group">
-          <label >Votre adresse</label>
-          <input type="text" class="form-control"  required name="adresse" placeholder="Votre adresse" >
-        </div>
-        <div class="form-group">
-          <label >Votre ville</label>
-          <input type="text" class="form-control"  required name="ville" placeholder="Votre ville" >
-        </div>
-        <div class="form-group">
-          <label >Votre pays</label>
-          <input type="text" class="form-control"  required name="pays" placeholder="Votre pays" >
-        </div>
-        <div class="form-group">
-          <label >Votre code postal</label>
-          <input type="text" class="form-control"  required name="cp" placeholder="Votre code postal" >
-        </div>
-        <div class="form-group">
-          <label >Votre numéro</label>
-          <input type="text" class="form-control"  required name="tel" placeholder="Votre numéro" >
-        </div>
-        <div class="form-group">
           <label >Mot de passe</label>
           <input type="password" class="form-control" name="password1" placeholder="Mot de passe">
         </div>
@@ -56,24 +33,28 @@
 
         <button type="submit" name="submit" class="btn btn-warning width-1" style="background-color: #5c89c1; border-color: #5c89c1;color:white">Creer un compte</button>
       </form>
-      <?php
-          if (isset($erreur))
-          {
-            echo '<div style="color: red">'.$erreur.'</div>';
-          }
-       ?>
-       <div class="alert alert-success mt-4 text-center" role="alert">
-           Déja inscrit ?  <a href="connexion" class="alert-link">Connectez-vous</a> maintenant.
-       </div>
+      
+      @isset($erreur)
+      
+      <div style="color: red; text-align:center; margin-top:20px;">{{$erreur}}</div>;
+      
+      @endisset
+      
+      <div class="alert alert-success mt-4 text-center" role="alert">
+          Pas encore inscrit ?  <a href="inscription" class="alert-link">Rejoignez-nous</a> maintenant.
+      </div>
+
     </div>
   </div>
-</body>
+</div>
 
 <style>
 .width-1{
   width:100%;
 }
-.btn-primary{
-  background-color:
+
+.row{
+  margin-left:0;
+  margin-right:0;
 }
 </style>

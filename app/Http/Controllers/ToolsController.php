@@ -60,13 +60,7 @@ class ToolsController extends Controller
             //'UserId' => '00001',
             'nom' => htmlspecialchars($request->input('nom')),
             'prenom' => htmlspecialchars($request->input('prenom')),
-            'anniversaire' => htmlspecialchars($request->input('anniversaire')),
-            'adresse' => htmlspecialchars($request->input('adresse')),
-            'ville' => htmlspecialchars($request->input('ville')),
-            'pays' => htmlspecialchars($request->input('pays')),
-            'codePostal' => htmlspecialchars($request->input('cp')),
             'mail' => htmlspecialchars($request->input('mail')),
-            'tel' => htmlspecialchars($request->input('tel')),
             'password' => Hash::make($request->input('password1'))    
         ];
         $password1 = htmlspecialchars($request->input('password1'));
