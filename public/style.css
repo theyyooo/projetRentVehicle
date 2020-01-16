@@ -7,3 +7,83 @@
         height: 100vh;
         margin: 0;
     }
+    
+    .example_e {
+        border: none;
+        background: #404040;
+        color: #ffffff !important;
+        font-weight: 100;
+        padding: 20px;
+        text-transform: uppercase;
+        border-radius: 6px;
+        display: inline-block;
+        transition: all 0.3s ease 0s;
+    }
+    
+    .example_e:hover {
+        color: #404040 !important;
+        font-weight: 700 !important;
+        letter-spacing: 3px;
+        background: none;
+        -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+        -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+        transition: all 0.3s ease 0s;
+    }
+    
+    .onoffswitch {
+        position: relative;
+        width: 85px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        text-align
+    }
+    
+    .onoffswitch-checkbox {
+        display: none;
+    }
+    
+    .onoffswitch-label {
+        display: block;
+        overflow: hidden;
+        cursor: pointer;
+        height: 30px;
+        padding: 0;
+        line-height: 30px;
+        border: 0px solid #999999;
+        border-radius: 18px;
+        background-color: #EEEEEE;
+    }
+    
+    .onoffswitch-label:before {
+        content: "";
+        display: block;
+        width: 18px;
+        margin: 6px;
+        background: #A1A1A1;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 51px;
+        border-radius: 18px;
+        box-shadow: 0 6px 12px 0px #757575;
+    }
+    
+    .onoffswitch-checkbox:checked+.onoffswitch-label {
+        background-color: #5C89C1;
+    }
+    
+    .onoffswitch-checkbox:checked+.onoffswitch-label,
+    .onoffswitch-checkbox:checked+.onoffswitch-label:before {
+        border-color: #5C89C1;
+    }
+    
+    .onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-inner {
+        margin-left: 0;
+    }
+    
+    .onoffswitch-checkbox:checked+.onoffswitch-label:before {
+        right: 0px;
+        background-color: #FFFFFF;
+        box-shadow: 3px 6px 18px 0px rgba(0, 0, 0, 0.2);
+    }

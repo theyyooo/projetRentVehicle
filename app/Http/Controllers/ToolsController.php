@@ -99,6 +99,21 @@ class ToolsController extends Controller
 
        return view('main'); 
     }
+
+    public function admin(){
+        if (Auth::check()) {
+            if (Auth::user()->admin) {
+                return view('admin');
+            }
+            else {
+                return view('404');
+            }
+        }
+        else {
+            return view('404');
+        }
+        
+    }
 }
 
 

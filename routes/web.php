@@ -21,6 +21,7 @@ Route::post('/inscriptionEx', 'ToolsController@inscriptionEx');
 
 Route::get('/deconnection', 'ToolsController@deconnection');
 
+Route::get('/admin', 'ToolsController@admin');
 
 Route::post('/admin/newRendu', 'RenduController@newRendu');
 Route::get('/admin/allRendu', 'RenduController@getAllRendu');
@@ -30,7 +31,8 @@ Route::get('/admin/rendu/{id}/delete', 'RenduController@delete');
 
 Route::get('/admin/allPersonne', 'PersonneController@getAllPersonne');
 
-Route::post('/admin/newVehicle', 'VehicleController@newVehicle');
+Route::get('/admin/newVehicle', 'VehicleController@newVehicle');
+Route::post('/admin/newVehicle', 'VehicleController@newVehicleEx');
 Route::get('/admin/allVehicle', 'VehicleController@getAllVehicle');
 Route::get('/admin/vehicle/{id}', 'VehicleController@getVehicle');
 Route::post('/admin/vehicle/{id}/edit', 'VehicleController@edit');

@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('prenom');
             $table->string('mail');         
             $table->boolean('vehicle')->default(false);
+            $table->boolean('admin')->default(false);
             $table->timestamps();
         });
     }
