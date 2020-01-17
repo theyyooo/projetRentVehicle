@@ -8,7 +8,7 @@
           <div class="col-lg-12" >
   
                   <div class="card">
-                  <img src="../../storage/{{$unvehicle->photo}}.jpg" class="card-img-top" alt="...">
+                  <img src="../../storage/uploads/{{$unvehicle->photo}}.jpg" class="card-img-top" alt="...">
                           <div class="card-body">
                           <h5 class="card-title" style="color: black;">{{$unvehicle->modele}}</h5>
                           <p style="border-bottom: 3px black solid; margin-bottom: 50px;padding-bottom: 25px;" class="card-text">{{$unvehicle->marque}}</p>                              

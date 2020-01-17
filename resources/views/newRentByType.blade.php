@@ -31,7 +31,7 @@
           <div class="col-lg-12" >
   
                   <div class="card">
-                  <img src="../../storage/{{$vehicle->photo}}.jpg" class="card-img-top" alt="...">
+                  <img src="../../storage/uploads/{{$vehicle->photo}}.jpg" class="card-img-top" alt="...">
                           <div class="card-body">
                           <h5 class="card-title" style="color: black;">{{$vehicle->modele}}</h5>
                           <p class="card-text">{{$vehicle->marque}}</p>
@@ -46,6 +46,8 @@
                   </div>
   
           </div>
+       </div>
+    </div>
 </div>
 @endforeach
 

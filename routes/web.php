@@ -33,7 +33,7 @@ Route::get('/admin/allPersonne', 'PersonneController@getAllPersonne');
 
 Route::get('/admin/newVehicle', 'VehicleController@newVehicle');
 Route::post('/admin/newVehicle', 'VehicleController@newVehicleEx');
-Route::get('/admin/allVehicle', 'VehicleController@getAllVehicle');
+Route::get('/admin/allvehicle', 'VehicleController@getAllVehicle');
 Route::get('/admin/vehicle/{id}', 'VehicleController@getVehicle');
 Route::post('/admin/vehicle/{id}/edit', 'VehicleController@edit');
 Route::get('/admin/vehicle/{id}/delete', 'VehicleController@delete');

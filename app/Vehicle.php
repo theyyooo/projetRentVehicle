@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Vehicle extends Model
 {
-    protected $fillable = ['immatriculation', 'model', 'marque', 'type', 'disponibilite'];
+    protected $fillable = ['immatriculation', 'modele', 'marque', 'type', 'photo', 'disponibilite'];
    // public $timestamp = true;
 }

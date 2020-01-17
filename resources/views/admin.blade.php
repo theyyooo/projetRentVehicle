@@ -56,7 +56,7 @@
         </div>
 
         <div class="col-lg-6 text-center">
-                <div class="button_cont"><a class="example_e" href="add-website-here" rel="nofollow noopener">Tous les véhicules</a></div>
+                <div class="button_cont"><a class="example_e" href="/admin/allvehicle" rel="nofollow noopener">Tous les véhicules</a></div>
         </div>
     </div>
 </div>

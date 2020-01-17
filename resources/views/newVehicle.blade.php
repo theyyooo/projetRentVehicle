@@ -47,7 +47,7 @@
         <div class="form-group">
             <label >Disponible ?</label>
         <div class="onoffswitch">
-          <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+          <input type="checkbox" name="dispo" class="onoffswitch-checkbox" id="myonoffswitch" checked>
           <label class="onoffswitch-label" for="myonoffswitch"></label>
         </div>
         </div>
