@@ -11,10 +11,17 @@
 |
 */
 
-Route::get('/', 'Controller@main');
+Route::get('/', 'ToolsController@main');
 
-Route::get('/connexion', 'Controller@connexion');
-Route::get('/inscription', 'Controller@inscription');
+Route::get('/connexion', 'ToolsController@connexion');
+Route::post('/connexionEx', 'ToolsController@connexionEx');
+
+Route::get('/inscription', 'ToolsController@inscription');
+Route::post('/inscriptionEx', 'ToolsController@inscriptionEx');
+
+Route::get('/deconnection', 'ToolsController@deconnection');
+
+Route::get('/admin', 'ToolsController@admin');
 
 Route::post('/admin/newRendu', 'RenduController@newRendu');
 Route::get('/admin/allRendu', 'RenduController@getAllRendu');
@@ -22,14 +29,28 @@ Route::get('/admin/rendu/{id}', 'RenduController@getRendu');
 Route::post('/admin/rendu/{id}/edit', 'RenduController@edit');
 Route::get('/admin/rendu/{id}/delete', 'RenduController@delete');
 
-Route::get('/admin/allPersonne', 'PersonneController@getAllPersonne');
+Route::get('/admin/allrent', 'RentController@getRent');
+Route::get('/admin/rent/{id}/delete', 'RentController@delete');
 
-Route::post('/admin/newVehicle', 'VehicleController@newVehicle');
-Route::get('/admin/allVehicle', 'VehicleController@getAllVehicle');
+Route::get('/admin/allpersonnes', 'PersonneController@getAllPersonne');
+Route::get('/admin/personne/{id}/edit', 'PersonneController@getPersonne');
+Route::get('/admin/personne/{id}/delete', 'PersonneController@deletePersonne');
+Route::post('/admin/personne/{id}/edit', 'PersonneController@getPersonneEx');
+
+
+Route::get('/admin/newVehicle', 'VehicleController@newVehicle');
+Route::post('/admin/newVehicle', 'VehicleController@newVehicleEx');
+Route::get('/admin/allvehicle', 'VehicleController@getAllVehicle');
 Route::get('/admin/vehicle/{id}', 'VehicleController@getVehicle');
 Route::post('/admin/vehicle/{id}/edit', 'VehicleController@edit');
 Route::get('/admin/vehicle/{id}/delete', 'VehicleController@delete');
 
-Route::post('/newRent', 'RentController@new');
+Route::Post('/Rent', 'RentController@saveRent');
+Route::get('/newRent', 'RentController@getPage');
+Route::get('/newRent/{type}', 'RentController@getType');
+Route::get('/newRentBy/Car/{id}', 'RentController@getCar');
+
+
+
 Route::get('/allRent', 'RentController@getAllRent');
 Route::get('/currentRent', 'RentController@getCurrentRent');

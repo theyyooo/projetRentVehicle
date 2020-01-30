@@ -13,11 +13,14 @@ class CreateVehicleTable extends Migration
      */
     public function up()
     {
-        Schema::create('Vehicle', function (Blueprint $table) {
-            $table->increments('VehicleId');
-            $table->string('VehicleImmatriculation');
-            $table->string('VehicleMarque');
-            $table->string('VehicleModele');
+        Schema::create('vehicles', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('immatriculation');
+            $table->string('marque');
+            $table->string('modele');
+            $table->string('type');
+            $table->string('photo');
+            $table->boolean('disponibilite');
             $table->timestamps();
         });
     }
@@ -29,6 +32,6 @@ class CreateVehicleTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Vehicle');
+        Schema::dropIfExists('vehicles');
     }
 }

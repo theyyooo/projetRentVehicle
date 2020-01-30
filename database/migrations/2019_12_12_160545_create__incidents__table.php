@@ -13,15 +13,15 @@ class CreateIncidentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('Incidents', function (Blueprint $table) {
-            $table->increments('IncidentId');
-            $table->integer('VehicleId')->unsigned()->index();
-            $table->string('Description');
-            $table->boolean('VoitureUtilisable');
-            $table->string('Photo');
-            $table->date('Date');
-            $table->date('DateReparation');
-            $table->foreign('VehicleId')->references('VehicleId')->on('Vehicle');
+        Schema::create('incidents', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('vehicle_id')->unsigned()->index();
+            $table->string('description');
+            $table->boolean('voitureUtilisable');
+            $table->string('photo');
+            $table->date('date');
+            $table->date('dateReparation');
+            $table->foreign('vehicle_id')->references('id')->on('vehicles');
             $table->timestamps();
         });
     }
@@ -33,6 +33,6 @@ class CreateIncidentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Incidents');
+        Schema::dropIfExists('incidents');
     }
 }

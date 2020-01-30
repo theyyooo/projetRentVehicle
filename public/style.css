@@ -1,0 +1,159 @@
+    html,
+    body {
+        background-color: #fff;
+        color: #636b6f;
+        font-family: 'Nunito', sans-serif;
+        font-weight: 200;
+        height: 100vh;
+        margin: 0;
+    }
+    
+    .example_e {
+        border: none;
+        background: #404040;
+        color: #ffffff !important;
+        font-weight: 100;
+        padding: 20px;
+        text-transform: uppercase;
+        border-radius: 6px;
+        display: inline-block;
+        transition: all 0.3s ease 0s;
+    }
+    
+    .example_e:hover {
+        color: #404040 !important;
+        font-weight: 700 !important;
+        letter-spacing: 3px;
+        background: none;
+        -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+        -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+        transition: all 0.3s ease 0s;
+    }
+    
+    .onoffswitch {
+        position: relative;
+        width: 85px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        text-align: center;
+    }
+    
+    .onoffswitch-checkbox {
+        display: none;
+    }
+    
+    .onoffswitch-label {
+        display: block;
+        overflow: hidden;
+        cursor: pointer;
+        height: 30px;
+        padding: 0;
+        line-height: 30px;
+        border: 0px solid #999999;
+        border-radius: 18px;
+        background-color: #EEEEEE;
+    }
+    
+    .onoffswitch-label:before {
+        content: "";
+        display: block;
+        width: 18px;
+        margin: 6px;
+        background: #A1A1A1;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 51px;
+        border-radius: 18px;
+        box-shadow: 0 6px 12px 0px #757575;
+    }
+    
+    .onoffswitch-checkbox:checked+.onoffswitch-label {
+        background-color: #5C89C1;
+    }
+    
+    .onoffswitch-checkbox:checked+.onoffswitch-label,
+    .onoffswitch-checkbox:checked+.onoffswitch-label:before {
+        border-color: #5C89C1;
+    }
+    
+    .onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-inner {
+        margin-left: 0;
+    }
+    
+    .onoffswitch-checkbox:checked+.onoffswitch-label:before {
+        right: 0px;
+        background-color: #FFFFFF;
+        box-shadow: 3px 6px 18px 0px rgba(0, 0, 0, 0.2);
+    }
+    
+    .container2 {
+        position: relative;
+        margin-top: 50px;
+        width: 500px;
+        height: 300px;
+    }
+    
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0);
+        transition: background 0.5s ease;
+    }
+    
+    .container2:hover .overlay {
+        display: block;
+        background: rgba(0, 0, 0, .3);
+    }
+    
+    .btn-img {
+        position: absolute;
+        width: 500px;
+        height: 300px;
+        left: 0;
+    }
+    
+    .title {
+        position: absolute;
+        width: 500px;
+        left: 0;
+        top: 120px;
+        font-weight: 700;
+        font-size: 30px;
+        text-align: center;
+        text-transform: uppercase;
+        color: white;
+        z-index: 1;
+        transition: top .5s ease;
+    }
+    
+    .container2:hover .title {
+        top: 90px;
+    }
+    
+    .button {
+        position: absolute;
+        width: 500px;
+        left: 0;
+        top: 180px;
+        text-align: center;
+        opacity: 0;
+        transition: opacity .35s ease;
+    }
+    
+    .button a {
+        width: 200px;
+        padding: 12px 48px;
+        text-align: center;
+        color: white;
+        border: solid 2px white;
+        z-index: 1;
+    }
+    
+    .container2:hover .button {
+        opacity: 1;
+    }
