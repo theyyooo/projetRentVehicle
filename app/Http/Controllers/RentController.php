@@ -76,6 +76,11 @@ class RentController extends Controller
         }
     }
 
+    public function getRent(){
+        $rents = Rent::where('created_at', '!=', null)->with('vehicle', 'user')->get();
+        return view('rent')->with(['rents'=> $rents]);
+    }
+
     public function getCurrentRent()
     {
         if (Auth::check()==true) {
@@ -87,5 +92,26 @@ class RentController extends Controller
             return view('currentRent');
         }
         
+    }
+
+
+
+    public function delete($id, Request $request){
+        $alert = 'Votre suppression sur une location à été réalisée avec succès';
+        $request->session()->flash('alert_mp', $alert);
+        $rent = Rent::where('id', $id)->with('user')->first();
+        
+        $user = [
+           'nom'=> $rent->vehicle->nom,
+           'prenom'=> $rent->vehicle->prenom,
+           'mail'=> $rent->vehicle->mail,
+           'vehicle'=> 0,
+           'admin'=> $rent->vehicle->admin
+        ];
+        User::update($user);
+        Rent::where('id', $id)->delete();
+
+        
+        return redirect()->action('ToolsController@main');
     }
 }

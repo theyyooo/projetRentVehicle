@@ -95,10 +95,30 @@ class ToolsController extends Controller
         return redirect()->action('ToolsController@connexion');   
     }
 
-    public function main(){
 
+
+
+
+
+
+
+    public function main(Request $request){
+        if ($request->session()->has('alert_mp')) {
+            $alert_success = $request->session()->get('alert_mp');
+            return view('main')->with('alert_success', $alert_success);
+            die(); 
+        }
+       
        return view('main'); 
     }
+
+
+
+
+
+
+
+
 
     public function admin(){
         if (Auth::check()) {

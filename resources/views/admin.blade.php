@@ -12,16 +12,9 @@
         <p class="mt-2 mb-5" style="color: #636b6f;font-family: 'Nunito', sans-serif;font-weight: 200; font-size: 20px; text-align:center;text-decoration: underline"> Gestion d'utilisateurs:    </p>
 
     <div class="row">
-        <div class="col-lg-4 text-center">
-                <div class="button_cont"><a class="example_e" href="add-website-here" rel="nofollow noopener">Ajouter un utilisateur</a></div>
-        </div>
 
-        <div class="col-lg-4 text-center">
-                <div class="button_cont"><a class="example_e" href="add-website-here" rel="nofollow noopener">Ajouter un administrateur</a></div>
-        </div>
-
-        <div class="col-lg-4 text-center">
-                <div class="button_cont"><a class="example_e" href="add-website-here" rel="nofollow noopener">Tous les utilisateurs</a></div>
+        <div class="col-lg-12 text-center">
+                <div class="button_cont"><a class="example_e" href="/admin/allpersonnes" rel="nofollow noopener">Tous les utilisateurs</a></div>
         </div>
     </div>
 </div>
@@ -80,12 +73,9 @@
         <p class="mt-5 mb-5" style="color: #636b6f;font-family: 'Nunito', sans-serif;font-weight: 200; font-size: 20px; text-align:center;text-decoration: underline"> Gestion de locations:    </p>
 
     <div class="row">
-        <div class="col-lg-6 text-center">
-                <div class="button_cont"><a class="example_e" href="add-website-here" rel="nofollow noopener">Ajouter une location</a></div>
-        </div>
-
-        <div class="col-lg-6 text-center">
-                <div class="button_cont"><a class="example_e" href="add-website-here" rel="nofollow noopener">Toutes les locations</a></div>
+        
+        <div class="col-lg-12 text-center">
+                <div class="button_cont"><a class="example_e" href="/admin/allrent" rel="nofollow noopener">Toutes les locations</a></div>
         </div>
     </div>
 </div>

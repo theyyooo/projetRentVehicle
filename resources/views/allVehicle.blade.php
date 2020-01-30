@@ -1,9 +1,9 @@
-@include('template');
+@include('template')
 
 @isset($vehicles)
 <table class="table">
     <thead>
-      <tr style="text-align: center">
+      <tr style="text-align: center; font-size: 2em">
         <th scope="col">#</th>
         <th scope="col">Immatriculation</th>
         <th scope="col">Marque</th>
@@ -33,7 +33,7 @@
                 @endif
         
                 <td style="width: 30%; vertical-align: middle">
-                  <div class="container2"style="width: 90%; margin-left: 5%">
+                  <div class="container2">
                     <img class="btn-img"  src="../../storage/uploads/{{$vehicle->photo}}.jpg" alt="" />
                     <p class="title"><i class="fas fa-hand-point-up"></i></p>
                     <div class="overlay"></div>

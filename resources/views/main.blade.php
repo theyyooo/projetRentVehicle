@@ -1,6 +1,11 @@
 
   @include('template')
 
+  @isset($alert_success) 
+    <div class="alert alert-success text-center" role="alert">
+      {{$alert_success}} 
+    </div>
+  @endisset
 
   <div id="carouselExampleIndicators" class="carousel slide mt-5" data-ride="carousel" style="width: 90%; margin-left: 5%">
     <ol class="carousel-indicators">

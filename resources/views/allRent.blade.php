@@ -26,7 +26,7 @@
             <div class="col-lg-12" >
     
                     <div class="card">
-                    <img src="../../assets/{{$Rent->vehicle->photo}}.jpg" class="card-img-top" alt="...">
+                    <img src="../../storage/uploads/{{$Rent->vehicle->photo}}.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
                             <h5 class="card-title" style="color: black;">{{$Rent->vehicle->modele}}</h5>
                             <p class="card-text">{{$Rent->vehicle->marque}}</p>

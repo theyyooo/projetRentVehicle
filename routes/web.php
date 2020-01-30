@@ -29,7 +29,14 @@ Route::get('/admin/rendu/{id}', 'RenduController@getRendu');
 Route::post('/admin/rendu/{id}/edit', 'RenduController@edit');
 Route::get('/admin/rendu/{id}/delete', 'RenduController@delete');
 
-Route::get('/admin/allPersonne', 'PersonneController@getAllPersonne');
+Route::get('/admin/allrent', 'RentController@getRent');
+Route::get('/admin/rent/{id}/delete', 'RentController@delete');
+
+Route::get('/admin/allpersonnes', 'PersonneController@getAllPersonne');
+Route::get('/admin/personne/{id}/edit', 'PersonneController@getPersonne');
+Route::get('/admin/personne/{id}/delete', 'PersonneController@deletePersonne');
+Route::post('/admin/personne/{id}/edit', 'PersonneController@getPersonneEx');
+
 
 Route::get('/admin/newVehicle', 'VehicleController@newVehicle');
 Route::post('/admin/newVehicle', 'VehicleController@newVehicleEx');
