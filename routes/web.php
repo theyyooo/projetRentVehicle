@@ -23,8 +23,10 @@ Route::get('/deconnection', 'ToolsController@deconnection');
 
 Route::get('/admin', 'ToolsController@admin');
 
-Route::post('/admin/newRendu', 'RenduController@newRendu');
-Route::get('/admin/allRendu', 'RenduController@getAllRendu');
+Route::get('/admin/newrendu', 'RenduController@newRendu');
+Route::get('/admin/newrendufromrent/{id}', 'RenduController@newRendufromrent');
+Route::POST('/admin/newrendufromrentex/{id}', 'RenduController@newRendufromrentEx');       
+Route::get('/admin/getallrendu', 'RenduController@getAllRendu');
 Route::get('/admin/rendu/{id}', 'RenduController@getRendu');
 Route::post('/admin/rendu/{id}/edit', 'RenduController@edit');
 Route::get('/admin/rendu/{id}/delete', 'RenduController@delete');

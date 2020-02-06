@@ -2,6 +2,11 @@
 
 
 @isset($users)
+
+<div style="" class="mt-3 mb-3 ml-4">
+        <a href="/admin" class="btn btn-secondary width-1" style="color:white; vertical-align" role="button" aria-pressed="true"><i class="fas fa-undo-alt"></i></a>
+</div>
+
 <table class="table">
     <thead>
       <tr style="text-align: center; font-size: 2em">
@@ -32,7 +37,7 @@
                 @endif
                 <td style="vertical-align: middle">
                     <div class="text-center">
-                    <a href="/admin/personne/{{$user->id}}/edit" class="btn btn-secondary width-1" style="color:white; vertical-align" role="button" aria-pressed="true">Option</a>
+                    <a href="/admin/personne/{{$user->id}}/edit" class="btn btn-secondary width-1" style="color:white; vertical-align" role="button" aria-pressed="true"><i class="fas fa-edit"></i>   Option</a>
                     </div>
                 </td>
             

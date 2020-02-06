@@ -1,10 +1,18 @@
 
 @include('template')
 
+
+
 <div class="pt-5 mb-2" style="background: url('../../assets/wave.svg'); background-size:cover; height:80vh">
+
+
+
   <div class="card mt-5" style="width: 50%; margin-left: 25%;">
     <div class="p-4">
       <h5 class="card-title text-center h1">Nouveau Véhicule</h5>
+      <div style="width: 5%" class="mt-3 mb-3 ml-4">
+          <a href="/admin" class="btn btn-secondary width-1" style="color:white; vertical-align" role="button" aria-pressed="true"><i class="fas fa-undo-alt"></i></a>
+     </div>
       <div style="color: #5c89c1;">
             <i class="fas fa-car fa-5x d-block" style="text-align:center;"></i>
       </div>

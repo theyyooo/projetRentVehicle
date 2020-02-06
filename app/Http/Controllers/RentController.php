@@ -102,13 +102,14 @@ class RentController extends Controller
         $rent = Rent::where('id', $id)->with('user')->first();
         
         $user = [
-           'nom'=> $rent->vehicle->nom,
-           'prenom'=> $rent->vehicle->prenom,
-           'mail'=> $rent->vehicle->mail,
+           'nom'=> $rent->user->nom,
+           'prenom'=> $rent->user->prenom,
+           'mail'=> $rent->user->mail,
            'vehicle'=> 0,
-           'admin'=> $rent->vehicle->admin
+           'admin'=> $rent->user->admin
         ];
-        User::update($user);
+        User::where('id', $rent->vehicle_id)->first()->update($user);
+
         Rent::where('id', $id)->delete();
 
         
