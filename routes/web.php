@@ -1,5 +1,5 @@
 <?php
-
+ 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -56,3 +56,9 @@ Route::get('/newRentBy/Car/{id}', 'RentController@getCar');
 
 Route::get('/allRent', 'RentController@getAllRent');
 Route::get('/currentRent', 'RentController@getCurrentRent');
+
+
+Route::get('/admin/newincident', 'IncidentController@newincident');
+Route::post('/admin/newincident', 'IncidentController@newincidentex');
+Route::get('/admin/allincident', 'IncidentController@getallincident');
+

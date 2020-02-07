@@ -66,23 +66,4 @@ class RenduController extends Controller
         return view('allrendu')->with('forms', $forms);
     }
 
-
-
-
-
-
-
-
-
-    public function getRendu($id){
-
-    }
-
-    public function edit($id){
-
-    }
-
-    public function delete($id){
-
-    }
 }

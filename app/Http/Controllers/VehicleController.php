@@ -12,7 +12,7 @@ class VehicleController extends Controller
     public function newVehicle(){
         return view('newVehicle');
     }
-
+ 
     public function newVehicleEx(Request $request){
         $type = ['', 'Berline', 'Break', 'S.U.V', 'Utilitaire'];
         $dispo = $request->input('dispo');
@@ -37,9 +37,9 @@ class VehicleController extends Controller
        if ($request->hasFile('image')) {
             $path = $request->image->storeAs('public/uploads', $vehicle['photo'].'.jpg');
        }
-        $alert = "Le nouveau véhicule à été ajouté avec succès";
+       $alert = "Le nouveau véhicule à été ajouté avec succès";
        $request->session()->flash('alert_mp', $alert);
-        return view('admin');
+       return redirect()->action('ToolsController@main');
     }
 
     public function getAllVehicle(){

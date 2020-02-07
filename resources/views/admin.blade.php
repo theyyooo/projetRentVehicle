@@ -138,11 +138,11 @@
 
     <div class="row">
         <div class="col-lg-6 text-center">
-                <div class="button_cont"><a class="example_e" href="add-website-here" rel="nofollow noopener">Déclarer un sinistre</a></div>
+                <div class="button_cont"><a class="example_e" href="/admin/newincident" rel="nofollow noopener">Déclarer un sinistre</a></div>
         </div>
 
         <div class="col-lg-6 text-center mb-5">
-                <div class="button_cont mb-5"><a class="example_e" href="add-website-here" rel="nofollow noopener">Déclarer une réparartion</a></div>
+                <div class="button_cont mb-5"><a class="example_e" href="/admin/allincident" rel="nofollow noopener">Tous les sinistres</a></div>
         </div>
     </div>
 </div>
