@@ -36,11 +36,16 @@
                 <td style="vertical-align: middle">{{$rent->vehicle->marque}}, {{$rent->vehicle->modele}}</td>
                 <td style="vertical-align: middle">{{$rent->dateDepart}}</td>   
                 <td style="vertical-align: middle">{{$rent->dateArrive}}</td>  
+                @if($rent->returnsForms_id == null)
                 <td style="vertical-align: middle">
                     <div style="" class="text-center">
                     <a href="/admin/newrendufromrent/{{$rent->id}}" class="btn btn-danger" role="button" aria-pressed="true">Choisir</a>
                     </div>
-                </td>      
+                </td>  
+                @else 
+                <td>
+                </td>
+                @endif    
         </tr>
         </a>
         @endforeach

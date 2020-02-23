@@ -14,32 +14,41 @@
           @csrf
           <div class="form-group">
             <label >Nom</label>
-            <input type="text" class="form-control" required name="nom" value="{{$user->nom}}" >
+            <input type="text" class="@error('nom') is-invalid @enderror form-control"  name="nom" value="{{$user->nom}}" >
+            @error('nom')
+              <div class="invalid-feedback">Vous ne pouvez pas mettre des caractères numérique</div>
+            @enderror
           </div>
           <div class="form-group">
             <label >Prenom</label>
-            <input type="text" class="form-control" required name="prenom" value="{{$user->prenom}}" >
+            <input type="text" class=" @error('prenom') is-invalid @enderror form-control"  name="prenom" value="{{$user->prenom}}" >
+            @error('prenom')
+              <div class="invalid-feedback">Vous ne pouvez pas mettre des caractères numérique</div>
+            @enderror
           </div>
           <div class="form-group">
             <label >Mail</label>
-            <input type="text" class="form-control"  required name="mail" value="{{$user->mail}}" >
+            <input type="text" class="@error('mail') is-invalid @enderror form-control"   name="mail" value="{{$user->mail}}" >
+            @error('mail')
+              <div class="invalid-feedback">veuillez rentrer une adresse mail valide</div>
+            @enderror
           </div>
 
           <div class="form-group">
               <label >Location en cours ?</label>
-          <div class="onoffswitch">
-            <input type="checkbox" name="location" class="onoffswitch-checkbox" id="myonoffswitch" @if($user->vehicle)checked @endif>
-            <label class="onoffswitch-label" for="myonoffswitch"></label>
-          </div>
+              <div class="onoffswitch">
+                 <input type="checkbox" name="location" class="onoffswitch-checkbox" id="myonoffswitch" @if($user->vehicle)checked @endif>
+                 <label class="onoffswitch-label" for="myonoffswitch"></label>
+              </div>
           </div>
 
           <div class="form-group">
             <label >Administrateur ?</label>
-        <div class="onoffswitch">
-          <input type="checkbox" name="admin" class="onoffswitch-checkbox" id="myonoffswitch" @if($user->admin)checked @endif>
-          <label class="onoffswitch-label" for="myonoffswitch"></label>
-        </div>
-        </div>
+            <div class="onoffswitch">
+                <input type="checkbox" name="admin" class="onoffswitch-checkbox" id="myonoffswitch" @if($user->admin)checked @endif>
+                <label class="onoffswitch-label" for="myonoffswitch"></label>
+            </div>
+          </div>
   
           <div style="width: 50%; float: left" class="text-center">
             <button type="submit" name="submit" class="btn btn-warning width-1" style="background-color: #5c89c1; border-color: #5c89c1;color:white;">Enregistrer les modifications</button>

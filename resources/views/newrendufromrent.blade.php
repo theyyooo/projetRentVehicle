@@ -4,7 +4,7 @@
 
 
 <div class="pt-5 mb-2" style="background: url('../../assets/wave.svg'); background-size:cover; height:80vh">
-
+ 
 
 
   <div class="card mt-5" style="width: 50%; margin-left: 25%;">
@@ -20,11 +20,17 @@
         @csrf
         <div class="form-group">
           <label >Date départ</label>
-          <input type="date" class="form-control" required name="depart" placeholder="Date de départ du véhicule" >
+          <input type="date" class="@error('dateDepart') is-invalid @enderror form-control"   name="dateDepart" placeholder="Date de départ du véhicule" >
+          @error('dateDepart')
+           <div class="invalid-feedback">La date n'est pas valide</div>
+          @enderror
         </div>
         <div class="form-group">
           <label >Date Arrivé</label>
-          <input type="date" class="form-control" required name="arrive" placeholder="Date d'arrivé du véhicule" >
+          <input type="date" class=" @error('dateArrive') is-invalid @enderror form-control"   name="dateArrive" placeholder="Date d'arrivé du véhicule" >
+          @error('dateArrive')
+           <div class="invalid-feedback">La date n'est pas valide</div>
+          @enderror
         </div>
 
 

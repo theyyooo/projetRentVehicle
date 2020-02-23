@@ -19,10 +19,10 @@
     <tbody>
         @foreach ($forms as $form)
         <tr  style="text-align: center; color: #636b6f;font-family: 'Nunito', sans-serif;font-weight: 2em; font-size: 30px;">
-                <th style="vertical-align: middle" scope="row">{{$form->returnForm->id}}</th>
+                <th style="vertical-align: middle" scope="row">@if(isset($form->returnForm->id)){{$form->returnForm->id}}@else En attente @endif</th>
                 <td style="vertical-align: middle"> {{$form->id}}</td>
-                <td style="vertical-align: middle">{{$form->returnForm->dateDepart}}</td>
-                <td style="vertical-align: middle">{{$form->returnForm->dateArrive}}</td>
+                <td style="vertical-align: middle">@if(isset($form->returnForm->dateDepart)){{$form->returnForm->dateDepart}}@else En attente @endif</td>
+                <td style="vertical-align: middle">@if(isset($form->returnForm->dateArrive)){{$form->returnForm->dateArrive}}@else En attente @endif</td>
         </tr>
         @endforeach
     </tbody>

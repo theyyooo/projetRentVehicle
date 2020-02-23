@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Session;
 class ToolsController extends Controller
 {
     public function connexion(){
+
         if (Auth::check()==true) {
             return redirect()->action('ToolsController@main');
         }
@@ -21,23 +22,27 @@ class ToolsController extends Controller
     }
 
     public function connexionEx(Request $request){
+
+        $request->validate([
+            'mail'=> 'required|email:rfc',
+            'password'=> 'required'
+        ]);
         if (Auth::check() == false) {
-            $mail = htmlspecialchars($request->get('mail'));
-            $mdpconnect = htmlspecialchars($request->get('password'));
+            $mail = $request->get('mail');
+            $mdpconnect = $request->get('password');
             if (!empty($mail) AND !empty($mdpconnect)){
                 Auth::attempt(['mail'=> $mail, 'password'=>$mdpconnect]);
-            if (Auth::check() == true) {
-                return redirect()->action('ToolsController@main');
-             }
-             else {
-                 $erreur = 'Le mot de passe ou le mail est incorrecte';
-                 return view('connexion')->with('erreur', $erreur);
-             }
-              return view('main');
+
+                if (Auth::check() == true) {
+                    return redirect()->action('ToolsController@main');
+                }
+                else {
+                    $erreur = "mail ou mot de passe incorrect";
+                    return view('connexion')->with('erreur', $erreur);
+                }
             }
             else {
-                $erreur = 'Veuillez remplir tous les champs';
-                return view('connexion')->with('erreur', $erreur);
+                return view('connexion');
             }
         }
         else {
@@ -55,38 +60,51 @@ class ToolsController extends Controller
     }
 
     public function inscriptionEx(Request $request){
-     
+        
+        $request->validate([
+            'nom'=> 'required|alpha',
+            'prenom'=> 'required|alpha',
+            'mail'=> 'required|email:rfc',
+            'password1'=> 'required|min:5',
+            'password2'=> 'same:password1'
+        ]);
+
         $user = [
-            //'UserId' => '00001',
-            'nom' => htmlspecialchars($request->input('nom')),
-            'prenom' => htmlspecialchars($request->input('prenom')),
-            'mail' => htmlspecialchars($request->input('mail')),
+            'nom' => $request->input('nom'),
+            'prenom' => $request->input('prenom'),
+            'mail' => $request->input('mail'),
             'password' => Hash::make($request->input('password1'))    
         ];
-        $password1 = htmlspecialchars($request->input('password1'));
-        $password2 = htmlspecialchars($request->input('password2'));      
+        $password1 = $request->input('password1');
+        $password2 = $request->input('password2');      
        
-        if (!empty('nom') AND !empty('prenom') AND !empty('anniversaire') AND !empty('adresse') AND !empty('ville') AND !empty('pays') AND !empty('codePostal') AND !empty('mail')AND !empty('tel') ) {
-            if (strlen($password1) > 5) {
+        if (!empty('nom') AND !empty('prenom') AND !empty('mail')) {
+            if (strlen($password1) >= 5) {
                 if ($password1 == $password2) {
-                    User::create($user);
-                    Auth::attempt(['mail'=> $user['mail'], 'password'=>$password1]);
-
-                    return redirect()->action('ToolsController@main');
+                    $oneUser = User::where('mail', $request->input('mail'))->get();
+                    if(count($oneUser) == 0)
+                    {
+                        User::create($user);
+                        Auth::attempt(['mail'=> $user['mail'], 'password'=>$password1]);
+    
+                        return redirect()->action('ToolsController@main');
+                    }
+                    else {
+                        $erreur = "Ce mail existe déja";
+                        return view('inscription')->with('erreur', $erreur);
+                    }
                 }
                 else {
-                    $erreur = 'Les mots de passe ne correspondent pas';
-                    return view('inscription')->with('erreur', $erreur);
+                    return view('inscription');
                 }
             }
             else {
-                $erreur = 'Choisissez un meilleur mot de passe';
-                return view('inscription')->with('erreur', $erreur);
+                return view('inscription');
             }
         }
         else {
-            $erreur = 'Veuillez remplir tous les champs';
-            return view('inscription')->with('erreur', $erreur);
+            
+            return view('inscription');
         }
     }
 
@@ -126,11 +144,11 @@ class ToolsController extends Controller
                 return view('admin');
             }
             else {
-                return view('404');
+                return redirect()->action('ToolsController@main');   
             }
         }
         else {
-            return view('404');
+            return redirect()->action('ToolsController@main');   
         }
         
     }

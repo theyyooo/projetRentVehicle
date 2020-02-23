@@ -1,18 +1,31 @@
 <?php
-
+ 
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Rent;
 use App\ReturnsForms;
+use Illuminate\Support\Facades\Auth;
 
 
 class RenduController extends Controller
 {
     public function newRendu(){
-        $rents = Rent::all();
-        return view('newrendu')->with('rents', $rents);
+        if (Auth::check()) {
+            if (Auth::user()->admin) {
+                $rents = Rent::all();
+                return view('newrendu')->with('rents', $rents);
+            }
+            else {
+                return redirect()->action('ToolsController@main');   
+            }
+        }
+        else {
+            return redirect()->action('ToolsController@main');   
+        }
+        
     }
+    
 
 
 
@@ -22,8 +35,21 @@ class RenduController extends Controller
 
 
     public function newRendufromrent($id){
-        $rent = Rent::find($id);
-        return view('newrendufromrent')->with(['rent'=>$rent]);
+
+
+        if (Auth::check()) {
+            if (Auth::user()->admin) {
+
+                $rent = Rent::find($id);
+                return view('newrendufromrent')->with(['rent'=>$rent]);
+            }
+            else {
+                return redirect()->action('ToolsController@main');   
+            }
+        }
+        else {
+            return redirect()->action('ToolsController@main');   
+        }
     }
 
 
@@ -33,11 +59,16 @@ class RenduController extends Controller
 
 
     public function newRendufromrentEx($id, Request $request){
-        $dateDepart = $request->input('depart');
-        $dateArrive = $request->input('arrive');
+
+        $request->validate([
+            'dateDepart'=> 'required|date',
+            'dateArrive'=> 'required|date|after_or_equal:dateDepart'
+            
+        ]);
+
         $returnForms = [
-            'dateDepart'=> $dateDepart,
-            'dateArrive'=> $dateArrive  
+            'dateDepart'=> $request->input('dateDepart'),
+            'dateArrive'=> $request->input('dateArrive')  
         ];
 
         $form = ReturnsForms::create($returnForms);
@@ -62,8 +93,19 @@ class RenduController extends Controller
 
 
     public function getAllRendu(){
-        $forms = Rent::where('created_at', '!=', null)->with('returnForm')->get();
-        return view('allrendu')->with('forms', $forms);
+
+        if (Auth::check()) {
+            if (Auth::user()->admin) {
+                $forms = Rent::where('created_at', '!=', null)->with('returnForm')->get();
+                return view('allrendu')->with('forms', $forms);
+            }
+            else {
+                return redirect()->action('ToolsController@main');   
+            }
+        }
+        else {
+            return redirect()->action('ToolsController@main');   
+        }
     }
 
 }
