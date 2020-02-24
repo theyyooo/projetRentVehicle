@@ -14,27 +14,36 @@
           @csrf
           <div class="form-group">
             <label >Immatriculation</label>
-            <input type="text" class="form-control" required name="Immatriculation" value="{{$unvehicle->immatriculation}}" >
+            <input type="text" class=" @error('Immatriculation') is-invalid @enderror form-control"  name="Immatriculation" value="{{$unvehicle->immatriculation}}" >
+            @error('Immatriculation')
+            <div class="invalid-feedback">Le format doit être (XX-XXX-XX)</div>
+            @enderror
           </div>
           <div class="form-group">
             <label >Marque</label>
-            <input type="text" class="form-control" required name="Marque" value="{{$unvehicle->marque}}" >
+            <input type="text" class=" @error('Marque') is-invalid @enderror form-control"  name="Marque" value="{{$unvehicle->marque}}" >
+            @error('Marque')
+            <div class="invalid-feedback">Merci de remplir ce champs</div>
+            @enderror
           </div>
           <div class="form-group">
             <label >Modèle</label>
-            <input type="text" class="form-control"  required name="Modele" value="{{$unvehicle->modele}}" >
+            <input type="text" class=" @error('Modele') is-invalid @enderror form-control"   name="Modele" value="{{$unvehicle->modele}}" >
+            @error('Modele')
+            <div class="invalid-feedback">Merci de remplir ce champs</div>
+            @enderror
           </div>
           <div class="form-group">
           <label >Type</label>
             <div class="input-group mb-3">
                 <select class="custom-select" name="Type" id="inputGroupSelect01">
-                  <option selected>Choisir</option>
+                  <option selected value="0">Choisir le type</option>
                   <option value="1">Berline</option>
                   <option value="2">Break</option>
                   <option value="3">S.U.V</option>
                   <option value="4">Utilitaire</option>
                 </select>
-            </div>
+            </div> 
           </div>
           <div class="form-group">
               <label >Disponible ?</label>

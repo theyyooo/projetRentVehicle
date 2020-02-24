@@ -20,21 +20,30 @@
         @csrf
         <div class="form-group">
           <label >Immatriculation</label>
-          <input type="text" class="form-control" required name="Immatriculation" placeholder="Immatriculation de la voiture" >
+          <input type="text" class="@error('Immatriculation') is-invalid @enderror form-control"  name="Immatriculation" placeholder="Immatriculation de la voiture" >
+          @error('Immatriculation')
+            <div class="invalid-feedback">Le format doit être (XX-XXX-XX)</div>
+          @enderror
         </div>
         <div class="form-group">
           <label >Marque</label>
-          <input type="text" class="form-control" required name="Marque" placeholder="Marque de la voiture" >
+          <input type="text" class="@error('Marque') is-invalid @enderror form-control"  name="Marque" placeholder="Marque de la voiture" >
+          @error('Marque')
+            <div class="invalid-feedback">Merci de remplir ce champs</div>
+          @enderror
         </div>
         <div class="form-group">
           <label >Modèle</label>
-          <input type="text" class="form-control"  required name="Modele" placeholder="Modèle de la voiture" >
+          <input type="text" class="@error('Modele') is-invalid @enderror form-control"   name="Modele" placeholder="Modèle de la voiture" >
+          @error('Modele')
+            <div class="invalid-feedback">Merci de remplir ce champs</div>
+          @enderror
         </div>
         <div class="form-group">
         <label >Type</label>
           <div class="input-group mb-3">
               <select class="custom-select" name="Type" id="inputGroupSelect01">
-                <option selected>Choisissez le Type</option>
+                <option selected value="0">Choisissez le Type</option>
                 <option value="1">Berline</option>
                 <option value="2">Break</option>
                 <option value="3">S.U.V</option>
@@ -47,7 +56,7 @@
           <label >Photo</label>
           <div class="input-group mb-3">
               <div class="custom-file">
-                <input type="file" name="image" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                <input type="file" name="image" class="@error('image') is-invalid @enderror custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
                 <label class="custom-file-label" for="inputGroupFile01">Choisissez une image</label>
               </div>
             </div>

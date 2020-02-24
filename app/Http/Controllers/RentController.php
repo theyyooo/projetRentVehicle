@@ -119,7 +119,7 @@ class RentController extends Controller
         }
         
     }
-
+ 
 
 
     public function delete($id, Request $request){
