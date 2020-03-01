@@ -22,7 +22,7 @@
           <label >Voiture</label>
             <div class="input-group mb-3">
                 <select class="custom-select" name="voiture" id="inputGroupSelect01">
-                  <option selected>Choisissez la voiture</option>
+                  <option value="aucun" selected>Choisissez la voiture</option>
 
                   @foreach($voitures as $voiture)
 
@@ -35,15 +35,24 @@
           </div>
         <div class="form-group" >
           <label >Desciption de la collision</label>
-          <input  type="text" class="form-control" required name="Description" placeholder="Description de la voiture " >
+          <input  type="text" class="@error('Description') is-invalid @enderror form-control"  name="Description" placeholder="Description de la voiture " >
+          @error('Desciption')
+            <div class="invalid-feedback">Merci de remplir ce champs</div>
+          @enderror
         </div>
         <div class="form-group">
             <label >Date de la collision</label>
-            <input type="date" class="form-control"  required name="Datecollision" placeholder="Date de la collision" >
+            <input type="date" class="@error('Datecollision') is-invalid @enderror form-control"   name="Datecollision" placeholder="Date de la collision" >
+            @error('Datecollision')
+             <div class="invalid-feedback">Merci de remplir ce champs</div>
+            @enderror
           </div>
         <div class="form-group">
-          <label >Date de la réparation (si effectué)</label>
-          <input type="date" class="form-control"  name="Datereparation" placeholder="" >
+          <label >Date de la réparation</label>
+          <input type="date" class="@error('Datereparation') is-invalid @enderror form-control"  name="Datereparation" placeholder="" >
+          @error('Datereparation')
+            <div class="invalid-feedback">Merci de remplir ce champs</div>
+          @enderror
         </div>
 
 

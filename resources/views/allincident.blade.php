@@ -25,6 +25,11 @@
                 <td style="vertical-align: middle">{{$incident->description}}</td>
                 <td style="vertical-align: middle">{{$incident->date}}</td>
                 <td style="vertical-align: middle">{{$incident->dateReparation}}</td>
+                <td style="vertical-align: middle">
+                  <div class="text-center">
+                  <a href="/admin/incident/{{$incident->id}}" class="btn btn-secondary width-1" style="color:white; vertical-align" role="button" aria-pressed="true"><i class="fas fa-edit"></i>   Option</a>
+                  </div>
+              </td>
         </tr>
         @endforeach
     </tbody>

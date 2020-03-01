@@ -49,7 +49,7 @@ Route::get('/newRent', 'RentController@getPage');
 Route::get('/newRent/{type}', 'RentController@getType');
 Route::get('/newRentBy/Car/{id}', 'RentController@getCar');
 
-
+ 
 
 Route::get('/allRent', 'RentController@getAllRent');
 Route::get('/currentRent', 'RentController@getCurrentRent');
@@ -58,4 +58,7 @@ Route::get('/currentRent', 'RentController@getCurrentRent');
 Route::get('/admin/newincident', 'IncidentController@newincident');
 Route::post('/admin/newincident', 'IncidentController@newincidentex');
 Route::get('/admin/allincident', 'IncidentController@getallincident');
+Route::get('/admin/incident/{id}', 'IncidentController@editIncident');
+Route::post('/admin/incident/{id}/edit', 'IncidentController@editIncidentEx');
+Route::get('/admin/incident/{id}/delete', 'IncidentController@delete');
 
