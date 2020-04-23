@@ -16,7 +16,7 @@
     <div class="alert alert-danger text-center mt-5" style="width: 30%; margin-left: 35%; text-align:center; " role="alert">
         Vous n'êtes pas connecté 
     </div>
-@endif
+@endif  
 
 @isset($myRents)
     @foreach ($myRents as $Rent)

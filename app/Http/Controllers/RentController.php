@@ -79,7 +79,7 @@ class RentController extends Controller
 
         $user = User::where('id', Auth::user()->id);
         $user->update(['vehicle' => 1]);
-        $alert = "Votre réservation à été pris en compte. Toutefois, les dates de réservation sont succeptible d'\être modifier";
+        $alert = "Votre réservation à été pris en compte.";
         $request->session()->flash('alert_mp', $alert);
         return redirect()->action('ToolsController@main');
     }
@@ -89,7 +89,7 @@ class RentController extends Controller
     {
         if (Auth::check()==true) {
             $myRents = Rent::where('user_id', Auth::user()->id)->with('vehicle')->get();
-            return view('allRent')->with('myRents');
+            return view('allRent')->with(['myRents' => $myRents]);
         }
         else {
             return redirect()->action('ToolsController@connexion');
@@ -101,7 +101,7 @@ class RentController extends Controller
         if (Auth::check()) {
             if (Auth::user()->admin) {
                 $rents = Rent::where('created_at', '!=', null)->with('vehicle', 'user')->get();
-                return view('rent')->with('rents');
+                return view('rent')->with(['rents'=> $rents]);
             }
             else {
                 return redirect()->action('ToolsController@main');   
