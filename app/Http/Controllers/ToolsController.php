@@ -30,7 +30,7 @@ class ToolsController extends Controller
         if (Auth::check() == false) {
             $mail = $request->get('mail');
             $mdpconnect = $request->get('password');
-            if (!empty($mail) AND !empty($mdpconnect)){
+            if (!empty($mail) && !empty($mdpconnect)){
                 Auth::attempt(['mail'=> $mail, 'password'=>$mdpconnect]);
 
                 if (Auth::check() == true) {
@@ -51,7 +51,7 @@ class ToolsController extends Controller
     }
 
     public function inscription(){
-        if (Auth::check()==true) {
+        if (Auth::check()) {
             return redirect()->action('ToolsController@main');
         }
         else {
@@ -78,7 +78,7 @@ class ToolsController extends Controller
         $password1 = $request->input('password1');
         $password2 = $request->input('password2');      
        
-        if (!empty('nom') AND !empty('prenom') AND !empty('mail')) {
+        if (!empty($user['nom']) AND !empty($user['prenom']) AND !empty($user['mail'])) {
             if (strlen($password1) >= 5) {
                 if ($password1 == $password2) {
                     $oneUser = User::where('mail', $request->input('mail'))->get();

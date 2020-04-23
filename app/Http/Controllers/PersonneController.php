@@ -14,7 +14,7 @@ class PersonneController extends Controller
             if (Auth::user()->admin) {
 
                 $users = User::all();
-                return view('allPersonnes')->with('users', $users);
+                return view('allPersonnes')->with(compact('users'));
             }
             else {
                 return redirect()->action('ToolsController@main');   
@@ -30,7 +30,7 @@ class PersonneController extends Controller
         if (Auth::check()) {
             if (Auth::user()->admin) {
                 
-                $user = User::where('id', $id)->first();
+                $user = User::find($id);
                 if ($user == null) {
                     return redirect()->action('ToolsController@main');  
                 }
@@ -72,15 +72,15 @@ class PersonneController extends Controller
         }
 
         $personne = [
-            'nom'=>htmlspecialchars($request->input('nom')),
-            'prenom'=>htmlspecialchars($request->input('prenom')),
-            'mail'=>htmlspecialchars($request->input('mail')),
+            'nom'=>$request->input('nom'),
+            'prenom'=>$request->input('prenom'),
+            'mail'=>$request->input('mail'),
             'vehicle'=>$loc,
             'admin'=>$admin
 
         ];
 
-        User::where('id', $id)->first()->update($personne);
+        User::find($id)->update($personne);
         $alert = 'Votre modidication sur un utilisateur à été réalisé avec succès';
         $request->session()->flash('alert_mp', $alert);
         return redirect()->action('ToolsController@main');

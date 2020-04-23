@@ -20,9 +20,9 @@ class RentController extends Controller
     public function getType($type)
     {
 
-        if ($type == 'Berline' or $type == 'S.U.V' or $type == 'Utilitaire' or $type == 'Break') {
+        if (in_array($type, ['Berline', 'S.U.V', 'Utilitaire' , 'Break'])) {
             $vehicles = Vehicle::where('type', $type)->get();
-            if (Auth::check() == true) {
+            if (Auth::check()) {
                 $loc = Auth::user()->vehicle;
                 return view('newRentByType')->with(['type' => $type, 'vehicles' => $vehicles, 'erreur', 'loc' => $loc]);
             } else {
@@ -35,7 +35,7 @@ class RentController extends Controller
 
     public function getCar($id)
     {
-        if (Auth::check() == true) {
+        if (Auth::check()) {
             $loc = Auth::user()->vehicle;
             $vehicle_id = $id;
             if ($loc == 0) {
@@ -63,6 +63,12 @@ class RentController extends Controller
             'dateArrive'=> 'required|date|after_or_equal:dateDepart'
         ]);
 
+        $count = Rent::whereBetween('dateDepart', [$request->dateDepart, $request->dateArrive])->where('vehicle_id', $request->id)->count();
+        if($count >0){
+            $alert = "La date demandée est indisponible";
+            $request->session()->flash('alert_mp', $alert);
+            return redirect()->action('ToolsController@main');
+        }
         $rent = [
             'user_id' => Auth::user()->id,
             'vehicle_id' => $request->input('id'),
@@ -83,7 +89,7 @@ class RentController extends Controller
     {
         if (Auth::check()==true) {
             $myRents = Rent::where('user_id', Auth::user()->id)->with('vehicle')->get();
-            return view('allRent')->with(['myRents' => $myRents]);
+            return view('allRent')->with('myRents');
         }
         else {
             return redirect()->action('ToolsController@connexion');
@@ -94,9 +100,8 @@ class RentController extends Controller
 
         if (Auth::check()) {
             if (Auth::user()->admin) {
-                
                 $rents = Rent::where('created_at', '!=', null)->with('vehicle', 'user')->get();
-                return view('rent')->with(['rents'=> $rents]);
+                return view('rent')->with('rents');
             }
             else {
                 return redirect()->action('ToolsController@main');   

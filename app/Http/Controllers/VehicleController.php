@@ -112,7 +112,7 @@ class VehicleController extends Controller
         $dispo = $request->input('dispo');
         if ($request->input('Type') == 0){
             $erreur = "merci de remplir tous les champs";
-            $unVehicle = Vehicle::where('id', $id)->first();
+            $unVehicle = Vehicle::find($id);
             return view('modifVehicle')->with(['erreur'=> $erreur, 'unvehicle'=>$unVehicle]);  
         }
         else {
@@ -131,7 +131,7 @@ class VehicleController extends Controller
                 'disponibilite'=> $disponibilite
             ];
     
-            Vehicle::where('id', $id)->first()->Update($vehicle);
+            Vehicle::find($id)->update($vehicle);
     
             $alert = 'Votre modidication sur un véhicule à été réalisé avec succès';
             $request->session()->flash('alert_mp', $alert);

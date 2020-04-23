@@ -16,7 +16,8 @@
                                     @csrf
                                     <div class="form-group" style="width:40%; margin-left: 30%;">
                                         <label >Date de début:</label>
-                                        <input type="date" name="dateDepart" class="@error('dateDepart') is-invalid @enderror form-control">
+                                        <input type="date" name="dateDepart" id="dateDep" class="@error('dateDepart') is-invalid @enderror form-control">
+                                        <!-- <div id="dateDep"> -->
                                         @error('dateDepart')
                                           <div class="invalid-feedback">La date doit être valide</div>
                                         @enderror
