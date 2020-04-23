@@ -1,6 +1,6 @@
 <?php
-
-/*
+ 
+/* 
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
@@ -23,11 +23,10 @@ Route::get('/deconnection', 'ToolsController@deconnection');
 
 Route::get('/admin', 'ToolsController@admin');
 
-Route::post('/admin/newRendu', 'RenduController@newRendu');
-Route::get('/admin/allRendu', 'RenduController@getAllRendu');
-Route::get('/admin/rendu/{id}', 'RenduController@getRendu');
-Route::post('/admin/rendu/{id}/edit', 'RenduController@edit');
-Route::get('/admin/rendu/{id}/delete', 'RenduController@delete');
+Route::get('/admin/newrendu', 'RenduController@newRendu');
+Route::get('/admin/newrendufromrent/{id}', 'RenduController@newRendufromrent');
+Route::POST('/admin/newrendufromrentex/{id}', 'RenduController@newRendufromrentEx');      
+Route::get('/admin/getallrendu', 'RenduController@getAllRendu');
 
 Route::get('/admin/allrent', 'RentController@getRent');
 Route::get('/admin/rent/{id}/delete', 'RentController@delete');
@@ -50,7 +49,16 @@ Route::get('/newRent', 'RentController@getPage');
 Route::get('/newRent/{type}', 'RentController@getType');
 Route::get('/newRentBy/Car/{id}', 'RentController@getCar');
 
-
+ 
 
 Route::get('/allRent', 'RentController@getAllRent');
 Route::get('/currentRent', 'RentController@getCurrentRent');
+
+
+Route::get('/admin/newincident', 'IncidentController@newincident');
+Route::post('/admin/newincident', 'IncidentController@newincidentex');
+Route::get('/admin/allincident', 'IncidentController@getallincident');
+Route::get('/admin/incident/{id}', 'IncidentController@editIncident');
+Route::post('/admin/incident/{id}/edit', 'IncidentController@editIncidentEx');
+Route::get('/admin/incident/{id}/delete', 'IncidentController@delete');
+

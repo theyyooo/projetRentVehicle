@@ -12,11 +12,17 @@
       @csrf
         <div class="form-group" style="width: 90%; margin-left:5%">
           <label >Mail</label>
-          <input type="texte" name="mail" class="form-control"  placeholder="Votre mail">
+          <input type="texte" name="mail" class="@error('mail') is-invalid @enderror form-control"  placeholder="Votre mail">
+          @error('mail')
+           <div class="invalid-feedback">veuillez rentrer une adresse mail valide</div>
+          @enderror
         </div>
         <div class="form-group" style="width: 90%; margin-left:5%">
           <label >Mot de passe</label>
-          <input type="password" name="password" class="form-control" placeholder="Mot de passe">
+          <input type="password" name="password" class=" @error('password') is-invalid @enderror form-control" placeholder="Mot de passe">
+          @error('password')
+           <div class="invalid-feedback">Votre mot de passe doit être valide</div>
+          @enderror
         </div>
         <div class="" style="width: 45%; margin-left:27.5%">
         <button type="submit" name="submit" class="btn btn-warning width-1" style="background-color: #5c89c1; border-color: #5c89c1; color:white">Se connecter</button>

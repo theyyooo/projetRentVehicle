@@ -17,10 +17,8 @@ class CreateIncidentsTable extends Migration
             $table->increments('id');
             $table->integer('vehicle_id')->unsigned()->index();
             $table->string('description');
-            $table->boolean('voitureUtilisable');
-            $table->string('photo');
             $table->date('date');
-            $table->date('dateReparation');
+            $table->date('dateReparation')->nullable();
             $table->foreign('vehicle_id')->references('id')->on('vehicles');
             $table->timestamps();
         });

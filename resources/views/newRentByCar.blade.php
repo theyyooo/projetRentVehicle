@@ -16,15 +16,21 @@
                                     @csrf
                                     <div class="form-group" style="width:40%; margin-left: 30%;">
                                         <label >Date de début:</label>
-                                        <input type="date" name="datedebut" class="form-control">
+                                        <input type="date" name="dateDepart" id="dateDep" class="@error('dateDepart') is-invalid @enderror form-control">
+                                        <!-- <div id="dateDep"> -->
+                                        @error('dateDepart')
+                                          <div class="invalid-feedback">La date doit être valide</div>
+                                        @enderror
                                     </div>
 
                                     <div class="form-group" style="width:40%; margin-left: 30%;">
                                         <label >Date de fin:</label>
-                                        <input type="date" name="datefin" class="form-control">
+                                        <input type="date" name="dateArrive" class="@error('dateArrive') is-invalid @enderror form-control">
+                                        @error('dateArrive')
+                                          <div class="invalid-feedback">La date doit être valide</div>
+                                        @enderror
                                     </div>
                                     <input id="id" name="id" type="hidden" value="{{$id}}">
-
                                     <button type="submit" name="submit" class="btn btn-warning width-1" style="background-color: green; border-color: #5c89c1; color:white">Réserver</button>
                             </form>
                           </div>
