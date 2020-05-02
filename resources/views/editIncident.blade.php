@@ -43,7 +43,7 @@
             </div>
           <div class="form-group">
             <label >Date de la réparation</label>
-            <input type="date" class="@error('Datereparation') is-invalid @enderror form-control"  name="Datereparation" @if(isset($incident->dateReparation)) value="{{$incident->dateReparation}}" @endif >
+            <input type="date" class="@error('Datereparation') is-invalid @enderror form-control"  name="Datereparation" @if(isset($incident->date_reparation)) value="{{$incident->date_reparation}}" @endif >
             @error('Datereparation')
               <div class="invalid-feedback">Merci de remplir ce champs</div>
             @enderror

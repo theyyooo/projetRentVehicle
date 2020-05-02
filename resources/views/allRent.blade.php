@@ -31,8 +31,8 @@
                             <h5 class="card-title" style="color: black;">{{$Rent->vehicle->modele}}</h5>
                             <p class="card-text">{{$Rent->vehicle->marque}}</p>
 
-                            <p class="card-text mt-3 text-success"> Date de départ: {{$Rent->dateDepart}}</p>
-                            <p class="card-text text-danger">Date d'arrivée: {{$Rent->dateArrive}}</p>
+                            <p class="card-text mt-3 text-success"> Date de départ: {{$Rent->date_depart}}</p>
+                            <p class="card-text text-danger">Date d'arrivée: {{$Rent->date_arrive}}</p>
                             </div>
                     </div>
     

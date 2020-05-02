@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Rent extends Model
 {
-    protected $fillable = ['vehicle_id', 'user_id', 'returnsForms_id',  'dateDepart', 'dateArrive'];
+    protected $fillable = ['vehicle_id', 'user_id', 'returns_forms_id',  'date_depart', 'date_arrive'];
 
     public function vehicle(){
         return $this->belongsTo(Vehicle::class);
@@ -17,6 +17,6 @@ class Rent extends Model
     }
 
     public function returnForm(){
-        return $this->belongsTo(ReturnsForms::class, 'returnsForms_id');
+        return $this->belongsTo(ReturnsForms::class, 'returns_forms_id');
     }
 }

@@ -18,7 +18,7 @@ class CreateIncidentsTable extends Migration
             $table->integer('vehicle_id')->unsigned()->index();
             $table->string('description');
             $table->date('date');
-            $table->date('dateReparation')->nullable();
+            $table->date('date_reparation')->nullable();
             $table->foreign('vehicle_id')->references('id')->on('vehicles');
             $table->timestamps();
         });

@@ -17,12 +17,12 @@ class CreateRentTable extends Migration
             $table->increments('id');
             $table->integer('vehicle_id')->unsigned()->index();
             $table->integer('user_id')->unsigned()->index();
-            $table->integer('returnsForms_id')->unsigned()->index()->nullable();
-            $table->date('dateDepart');
-            $table->date('dateArrive');
+            $table->integer('returns_forms_id')->unsigned()->index()->nullable();
+            $table->date('date_depart');
+            $table->date('date_arrive');
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('vehicle_id')->references('id')->on('vehicles');
-            $table->foreign('returnsForms_id')->references('id')->on('returnsForms');
+            $table->foreign('returns_forms_id')->references('id')->on('returns_forms');
             $table->timestamps();
             
         });

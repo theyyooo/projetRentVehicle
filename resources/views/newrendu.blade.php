@@ -23,7 +23,7 @@
       </tr>
     </thead>
     @foreach ($rents as $rent) 
-    @if($rent->returnsForms_id == null)
+    @if($rent->returns_forms_id == null)
     <tbody class="alert-warning">
     @else
     <tbody class="alert-success">
@@ -35,8 +35,8 @@
                 <td style="vertical-align: middle">{{$rent->user->nom}} {{$rent->user->prenom}}</td>
                 <td style="vertical-align: middle">{{$rent->vehicle->marque}}, {{$rent->vehicle->modele}}</td>
                 <td style="vertical-align: middle">{{$rent->dateDepart}}</td>   
-                <td style="vertical-align: middle">{{$rent->dateArrive}}</td>  
-                @if($rent->returnsForms_id == null)
+                <td style="vertical-align: middle">{{$rent->date_arrive}}</td>  
+                @if($rent->returns_forms_id == null)
                 <td style="vertical-align: middle">
                     <div style="" class="text-center">
                     <a href="/admin/newrendufromrent/{{$rent->id}}" class="btn btn-danger" role="button" aria-pressed="true">Choisir</a>

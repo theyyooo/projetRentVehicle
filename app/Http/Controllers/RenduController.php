@@ -62,19 +62,19 @@ class RenduController extends Controller
 
         $request->validate([
             'dateDepart'=> 'required|date',
-            'dateArrive'=> 'required|date|after_or_equal:dateDepart'
+            'dateArrive'=> 'required|date|after_or_equal:date_depart'
             
         ]);
 
         $returnForms = [
-            'dateDepart'=> $request->input('dateDepart'),
-            'dateArrive'=> $request->input('dateArrive')  
+            'date_depart'=> $request->input('dateDepart'),
+            'date_arrive'=> $request->input('dateArrive')  
         ];
 
         $form = ReturnsForms::create($returnForms);
 
        
-        Rent::find($id)->update(['returnsForms_id' => $form->id ]);
+        Rent::find($id)->update(['returns_forms_id' => $form->id ]);
         
         $alert = 'Votre ajout de formulaire de retour à été réalisé avec succès';
         $request->session()->flash('alert_mp', $alert);

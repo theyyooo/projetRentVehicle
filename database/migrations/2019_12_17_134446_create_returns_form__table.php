@@ -13,10 +13,10 @@ class CreateReturnsFormTable extends Migration
      */
     public function up()
     {
-        Schema::create('returnsForms', function (Blueprint $table) {
+        Schema::create('returns_forms', function (Blueprint $table) {
             $table->increments('id');
-            $table->date('dateDepart');
-            $table->date('dateArrive');
+            $table->date('date_depart');
+            $table->date('date_arrive');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateReturnsFormTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('returnsForms');
+        Schema::dropIfExists('returns_forms');
     }
 }

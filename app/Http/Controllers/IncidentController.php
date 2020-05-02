@@ -44,7 +44,7 @@ class IncidentController extends Controller
             'vehicle_id'=> $request->input('voiture'),
             'description'=> $request->input('Description'),
             'date'=> $request->input('Datecollision'),
-            'dateReparation'=> $request->input('Datereparation')
+            'date_reparation'=> $request->input('Datereparation')
         ];
         Incident::create($incident);
 
@@ -103,7 +103,7 @@ class IncidentController extends Controller
             'vehicle_id'=> $request->input('voiture'),
             'description'=> $request->input('Description'),
             'date'=> $request->input('Datecollision'),
-            'dateReparation'=> $request->input('Datereparation')
+            'date_reparation'=> $request->input('Datereparation')
         ];
         Incident::where('id', $id)->first()->update($incident);
 

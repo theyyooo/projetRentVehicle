@@ -63,7 +63,7 @@ class RentController extends Controller
             'dateArrive'=> 'required|date|after_or_equal:dateDepart'
         ]);
 
-        $count = Rent::whereBetween('dateDepart', [$request->dateDepart, $request->dateArrive])->where('vehicle_id', $request->id)->count();
+        $count = Rent::whereBetween('date_depart', [$request->dateDepart, $request->dateArrive])->where('vehicle_id', $request->id)->count();
         if($count >0){
             $alert = "La date demandée est indisponible";
             $request->session()->flash('alert_mp', $alert);
@@ -72,8 +72,8 @@ class RentController extends Controller
         $rent = [
             'user_id' => Auth::user()->id,
             'vehicle_id' => $request->input('id'),
-            'dateDepart' => $request->input('dateDepart'),
-            'dateArrive' => $request->input('dateArrive')
+            'date_depart' => $request->input('dateDepart'),
+            'date_arrive' => $request->input('dateArrive')
         ];
         Rent::create($rent);
 
@@ -115,7 +115,7 @@ class RentController extends Controller
     public function getCurrentRent()
     {
         if (Auth::check()==true) {
-            $myRents = Rent::where('user_id', Auth::user()->id)->where('dateDepart', '<=', Carbon::now())->where('dateArrive', '>=', Carbon::now())->with('vehicle')->get();
+            $myRents = Rent::where('user_id', Auth::user()->id)->where('date_depart', '<=', Carbon::now())->where('date_arrive', '>=', Carbon::now())->with('vehicle')->get();
             $date = Carbon::now();
             return view('currentRent')->with(['myRents' => $myRents, 'date' => $date]);
         }

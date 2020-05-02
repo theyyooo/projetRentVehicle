@@ -28,10 +28,10 @@
                             <h5 class="card-title" style="color: black;">{{$Rent->vehicle->modele}}</h5>
                             <p class="card-text">{{$Rent->vehicle->marque}}</p>
 
-                            <p class="card-text mt-3 text-success"> Date de départ: {{$Rent->dateDepart}}</p>
-                            <p class="card-text text-danger">Date d'arrivée: {{($Rent->dateArrive)}}</p>
+                            <p class="card-text mt-3 text-success"> Date de départ: {{$Rent->date_depart}}</p>
+                            <p class="card-text text-danger">Date d'arrivée: {{($Rent->date_arrive)}}</p>
                             <div class="alert alert-warning" style="width: 30%; margin-left: 35%; text-align:center" role="alert">
-                            <a href="/connexion" class="alert-link">Il vous reste {{\Carbon\Carbon::parse($Rent->dateArrive)->diffInDays($date)}} jours</a>.
+                            <a href="/connexion" class="alert-link">Il vous reste {{\Carbon\Carbon::parse($Rent->date_arrive)->diffInDays($date)}} jours</a>.
                             </div>                         
                             </div>
                     </div>
